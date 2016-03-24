@@ -69,4 +69,10 @@ app.use(function(err, req, res, next) {
 });
 
 
+app.get('/send', function(req, res){
+  sendFax();
+});
+//in able to make this into a button or something
+
+
 module.exports = app;

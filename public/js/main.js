@@ -14,7 +14,7 @@ function draw() {
 	background(0);
 	fill(255);
 
-	var yPos = 20;
+	var yPos = 10;
 	var increment = 50;
 
 	for(var i=0; i<foods.length;i++){
