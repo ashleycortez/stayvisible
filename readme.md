@@ -1,3 +1,3 @@
 ## Stay Visible
 
-In its humble, humble beginning stages
+In it's humble, humble beginning stages
