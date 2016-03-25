@@ -1,35 +1,36 @@
-var foods;
+// CUSTOM JS FILE //
 
-function preload() {
-	//use this to load assets like data -> loadJSON(), images -> loadImage(), etc
-	foods = loadJSON('data/data.json');
+function init() {
+  renderPeeps();
 }
 
-function setup() {
-	console.log(foods);
-	createCanvas(windowWidth,windowHeight);
+function renderPeeps(){
+	jQuery.ajax({
+		url : '/api/get',
+		dataType : 'json',
+		success : function(response) {
+			console.log(response);
+
+			var people = response.people;
+
+			for(var i=0;i<people.length;i++){
+				var htmlToAdd = '<div class="col-md-4">'+
+					'<img src='+people[i].imageUrl+' width="100">'+
+					'<h1>'+people[i].name+'</h1>'+
+					'<ul>'+
+						'<li>Year: '+people[i].itpYear+'</li>'+
+						'<li>Interests: '+people[i].interests+'</li>'+
+					'</ul>'+
+					'<a href="/edit/'+people[i]._id+'">Edit Person</a>'+
+				'</div>';
+			
+				jQuery("#people-holder").append(htmlToAdd);
+			}
+
+
+
+		}
+	})	
 }
 
-function draw() {
-	background(0);
-	fill(255);
-
-	var yPos = 10;
-	var increment = 50;
-
-	for(var i=0; i<foods.length;i++){
-		var w = map(foods[i].nutrition.calories.total, 0, 1000, 0, width);
-		rect(0,yPos,w,10);
-		textSize(12);
-		textAlign(LEFT);
-		text(foods[i].name,0,yPos+25);
-		textAlign(RIGHT);
-		text(foods[i].nutrition.calories.total + ' calories',w,yPos+25);
-		yPos += increment;
-	}
-}
-
-
-
-
-
+window.addEventListener('load', init())
