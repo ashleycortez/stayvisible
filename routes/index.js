@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 
 // our db models
 var Person = require("../models/person.js");
-var Course = require("../models/course.js");
+
 
 // S3 File dependencies
 var AWS = require('aws-sdk');
@@ -91,19 +91,6 @@ router.get('/edit/:id', function(req,res){
   })
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 router.get('/edit/:id', function(req,res){
 
