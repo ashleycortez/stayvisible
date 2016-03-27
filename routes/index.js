@@ -43,7 +43,8 @@ router.get('/', function(req, res) {
   //res.redirect('/directory')
 
   // respond with html
-  res.render('directory.html')
+  //testing - res.render('registerhome.html')
+  res.render('new-registration.html')
 
 });
 
@@ -53,9 +54,9 @@ router.get('/add-person', function(req,res){
 
 })
 
-router.get('/add-person-with-image', function(req,res){
+router.get('/new-registration', function(req,res){
 
-  res.render('add-with-image.html')
+  res.render('new-registration.html')
 
 })
 
@@ -121,9 +122,40 @@ router.post('/api/create', function(req,res){
   console.log(req.body);
 
   var personObj = {
-    name: req.body.name,
-    itpYear: req.body.itpYear,
-    interests: req.body.interests.split(','),
+    citizen: req.body.citizen,
+    ofage: req.body.ofage,
+    lastname: req.body.lastname,
+    firstname: req.body.firstname,
+    middlename: req.body.middlename,
+    clastname: req.body.clastname,
+    cfirstname: req.body.cfirstname,
+    cmiddlename: req.body.cmiddlename,
+    haddress: req.body.haddress,
+    hapt: req.body.hapt,
+    hcity: req.body.hcity,
+    hstate: req.body.hstate,
+    hzcode: req.body.hzcode,
+    maddress: req.body.maddress,
+    mapt: req.body.mapt,
+    mcity: req.body.mcity,
+    mstate: req.body.mstate,
+    mzcode: req.body.mzcode,
+    chaddress: req.body.chaddress,
+    chapt: req.body.chapt,
+    chcity: req.body.chcity,
+    chstate: req.body.chstate,
+    chzcode: req.body.chzcode,
+    cmaddress: req.body.cmaddress,
+    cmapt: req.body.cmapt,
+    cmcity: req.body.cmcity,
+    cmstate: req.body.cmstate,
+    cmzcode: req.body.cmzcode,
+    dob: req.body.dob,
+    tnumber: req.body.tnumber,
+    party: req.body.party,
+    rore: req.body.rore,
+    sign: req.body.sign,
+    dateAdded : { type: Date, default: Date.now },
     link: req.body.link,
     imageUrl: req.body.imageUrl,
     slug : req.body.name.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-')
@@ -160,14 +192,44 @@ router.post('/api/edit/:id', function(req,res){
   var requestedId = req.params.id;
 
   var personObj = {
-    name: req.body.name,
-    itpYear: req.body.itpYear,
-    interests: req.body.interests.split(','),
+    citizen: req.body.citizen,
+    ofage: req.body.ofage,
+    lastname: req.body.lastname,
+    firstname: req.body.firstname,
+    middlename: req.body.middlename,
+    clastname: req.body.clastname,
+    cfirstname: req.body.cfirstname,
+    cmiddlename: req.body.cmiddlename,
+    haddress: req.body.haddress,
+    hapt: req.body.hapt,
+    hcity: req.body.hcity,
+    hstate: req.body.hstate,
+    hzcode: req.body.hzcode,
+    maddress: req.body.maddress,
+    mapt: req.body.mapt,
+    mcity: req.body.mcity,
+    mstate: req.body.mstate,
+    mzcode: req.body.mzcode,
+    chaddress: req.body.chaddress,
+    chapt: req.body.chapt,
+    chcity: req.body.chcity,
+    chstate: req.body.chstate,
+    chzcode: req.body.chzcode,
+    cmaddress: req.body.cmaddress,
+    cmapt: req.body.cmapt,
+    cmcity: req.body.cmcity,
+    cmstate: req.body.cmstate,
+    cmzcode: req.body.cmzcode,
+    dob: req.body.dob,
+    tnumber: req.body.tnumber,
+    party: req.body.party,
+    rore: req.body.rore,
+    sign: req.body.sign,
+    dateAdded : { type: Date, default: Date.now },
     link: req.body.link,
     imageUrl: req.body.imageUrl,
-    slug : req.body.name.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'_')
+    slug : req.body.name.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-')
   }
-
   console.log(personObj);
 
   Person.findByIdAndUpdate(requestedId,personObj,function(err,data){
@@ -198,10 +260,42 @@ router.post('/api/create/image', multipartMiddleware, function(req,res){
   console.log('the incoming image file >> ' + JSON.stringify(req.files.image));
 
   var personObj = {
-    name: req.body.name,
-    itpYear: req.body.itpYear,
-    interests: req.body.interests.split(','),
+    citizen: req.body.citizen,
+    ofage: req.body.ofage,
+    lastname: req.body.lastname,
+    firstname: req.body.firstname,
+    middlename: req.body.middlename,
+    clastname: req.body.clastname,
+    cfirstname: req.body.cfirstname,
+    cmiddlename: req.body.cmiddlename,
+    haddress: req.body.haddress,
+    hapt: req.body.hapt,
+    hcity: req.body.hcity,
+    hstate: req.body.hstate,
+    hzcode: req.body.hzcode,
+    maddress: req.body.maddress,
+    mapt: req.body.mapt,
+    mcity: req.body.mcity,
+    mstate: req.body.mstate,
+    mzcode: req.body.mzcode,
+    chaddress: req.body.chaddress,
+    chapt: req.body.chapt,
+    chcity: req.body.chcity,
+    chstate: req.body.chstate,
+    chzcode: req.body.chzcode,
+    cmaddress: req.body.cmaddress,
+    cmapt: req.body.cmapt,
+    cmcity: req.body.cmcity,
+    cmstate: req.body.cmstate,
+    cmzcode: req.body.cmzcode,
+    dob: req.body.dob,
+    tnumber: req.body.tnumber,
+    party: req.body.party,
+    rore: req.body.rore,
+    sign: req.body.sign,
+    dateAdded : { type: Date, default: Date.now },
     link: req.body.link,
+    imageUrl: req.body.imageUrl,
     slug : req.body.name.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-')
   }
 

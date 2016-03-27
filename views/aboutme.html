@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello World</title>
+    <title>{{pageTitle}}</title>
 
     <!-- Custom Font - Change 'Muli' to the font you want -->
     <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
@@ -24,21 +24,35 @@
     <![endif]-->
   </head>
   <body>
-
-
-  <div class="container">
-    <div class="row" id="people-holder">
-      <P> hi</p>
-     
-      </div>
+    <div class="container">
     </div>
-  </div>
-  
-</body>
+  </body>
 
     <!-- JQuery script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 
     <!-- CUSTOM JS -->
     <script src="js/main.js"></script>
+
+    <!-- JQuery validate -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    
+    <script type="text/javascript">
+      $("form").validate({
+          rules: {
+            // compound rule
+            itpYear: {
+              required: true,
+              number: true
+            },
+            link: {
+              required: true,
+              url: true
+            }            
+          }
+
+      });
+    </script>
+
+
 </html>
