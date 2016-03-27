@@ -32,7 +32,7 @@ router.get('/', function(req, res) {
   console.log('home page requested!');
 
   var jsonData = {
-  	'name': 'itp-directory',
+  	'name': 'voter-info',
   	'api-status':'OK'
   }
 
@@ -44,13 +44,13 @@ router.get('/', function(req, res) {
 
   // respond with html
   //testing - res.render('registerhome.html')
-  res.render('new-registration.html')
+  res.render('registerhome.html')
 
 });
 
-router.get('/add-person', function(req,res){
+router.get('/aboutme', function(req,res){
 
-  res.render('add.html')
+  res.render('aboutme.html')
 
 })
 
@@ -60,9 +60,33 @@ router.get('/new-registration', function(req,res){
 
 })
 
-router.get('/directory', function(req,res){
+router.get('/edit-form', function(req,res){
 
-  res.render('directory.html')
+  res.render('edit-form.html')
+
+})
+
+router.get('/registrationcomplete', function(req,res){
+
+  res.render('registrationcomplete.html')
+
+})
+
+router.get('/render-form', function(req,res){
+
+  res.render('render-form.html')
+
+})
+
+router.get('/updateaddress', function(req,res){
+
+  res.render('updateaddress.html')
+
+})
+
+router.get('/updatename', function(req,res){
+
+  res.render('updatename.html')
 
 })
 
@@ -87,7 +111,7 @@ router.get('/edit/:id', function(req,res){
       person: data
     }
 
-    res.render('edit.html',viewData);
+    res.render('edit-form.html',viewData);
 
   })
 
@@ -111,7 +135,7 @@ router.get('/edit/:id', function(req,res){
       person: data
     }
 
-    return res.render('edit.html',viewData);
+    return res.render('edit-form.html',viewData);
   })
 
 })
@@ -248,7 +272,7 @@ router.post('/api/edit/:id', function(req,res){
 
     //return res.json(jsonData);
 
-    return res.redirect('/directory');
+    return res.redirect('/render-form');
 
   })
 
@@ -414,62 +438,62 @@ router.get('/api/get', function(req,res){
 
 })
 
-router.get('/api/get/year/:itpYear',function(req,res){
+// router.get('/api/get/year/:itpYear',function(req,res){
 
-  var requestedITPYear = req.params.itpYear;
+//   var requestedITPYear = req.params.itpYear;
 
-  console.log(requestedITPYear);
+//   console.log(requestedITPYear);
 
-  Person.find({itpYear:requestedITPYear},function(err,data){
-      if(err){
-        var error = {
-          status: "ERROR",
-          message: err
-        }
-        return res.json(err)
-      }
+//   Person.find({itpYear:requestedITPYear},function(err,data){
+//       if(err){
+//         var error = {
+//           status: "ERROR",
+//           message: err
+//         }
+//         return res.json(err)
+//       }
 
-      var jsonData = {
-        status: "OK",
-        people: data
-      }
+//       var jsonData = {
+//         status: "OK",
+//         people: data
+//       }
 
-      return res.json(jsonData);    
-  })
+//       return res.json(jsonData);    
+//   })
 
-})
+// })
 
-// year, name
-// /api/get/query?year=2016&name=Sam&hasGlasses=true
+// // year, name
+// // /api/get/query?year=2016&name=Sam&hasGlasses=true
 
-router.get('/api/get/query',function(req,res){
+// router.get('/api/get/query',function(req,res){
 
-  console.log(req.query);
+//   console.log(req.query);
 
-  var searchQuery = {};
+//   var searchQuery = {};
 
-  if(req.query.itpYear){
-    searchQuery['itpYear'] =  req.query.itpYear
-  }
+//   if(req.query.itpYear){
+//     searchQuery['itpYear'] =  req.query.itpYear
+//   }
 
-  if(req.query.name){
-    searchQuery['name'] =  req.query.name
-  }
+//   if(req.query.name){
+//     searchQuery['name'] =  req.query.name
+//   }
 
-  if(req.query.hasGlasses){
-    searchQuery['hasGlasses'] =  req.query.hasGlasses
-  }  
+//   if(req.query.hasGlasses){
+//     searchQuery['hasGlasses'] =  req.query.hasGlasses
+//   }  
 
-  Person.find(searchQuery,function(err,data){
-    res.json(data);
-  })
+//   Person.find(searchQuery,function(err,data){
+//     res.json(data);
+//   })
 
-  // Person.find(searchQuery).sort('-name').exec(function(err,data){
-  //   res.json(data);
-  // })  
+//   // Person.find(searchQuery).sort('-name').exec(function(err,data){
+//   //   res.json(data);
+//   // })  
 
 
-})
+// })
 
 
 
