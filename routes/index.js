@@ -4,6 +4,8 @@ var mongoose = require('mongoose');
 
 // our db models
 var Person = require("../models/person.js");
+var Updateaddress = require("../models/updateaddress.js");
+var Updatename = require("../models/updatename.js");
 
 
 // S3 File dependencies

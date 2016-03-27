@@ -1,9 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-// See http://mongoosejs.com/docs/schematypes.html
-
-var voterSchema = new Schema ({
+var nameSchema = new Schema ({
   citizen: Boolean,
   ofage: Boolean,
   lastname: String,
@@ -25,7 +23,9 @@ var voterSchema = new Schema ({
   rore: String,
   sign: String,
   dateAdded : { type: Date, default: Date.now },
+  plastname: String,
+  pfirstname: String,
+  pmiddlename: String,
 })
 
-// export 'Person' model so we can interact with it in other files
-module.exports = mongoose.model('Person',voterSchema);
+module.exports = mongoose.model('Updatename', nameSchema);
