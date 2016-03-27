@@ -27,6 +27,20 @@
     <div class="container">
       <form method="post" action="/api/create" id="myForm">
 
+
+          <fieldset>
+          <legend>Validating a form with a radio and checkbox buttons</legend>
+          <fieldset>
+          <legend>Gender</legend>
+          <label for="gender_male">
+          <input type="radio" id="gender_male" value="m" name="gender" required>Male
+          </label>
+          <label for="gender_female">
+          <input type="radio" id="gender_female" value="f" name="gender">Female
+          </label>
+          <label for="gender" class="error">Please select your gender</label>
+          </fieldset>
+          
           <h2>Are You a US Citizen?</h2>
           <input type="radio" name="citizen" value="yes">Yes<br>
           <input type="radio" name="citizen" value="no">No          
