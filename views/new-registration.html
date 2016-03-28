@@ -25,98 +25,88 @@
   </head>
   <body>
     <div class="container">
-      <form method="post" action="/api/create" id="myForm">
+      <form method="post" action="/api/create" id="myForm" enctype="multipart/form-data">
 
-
-          <fieldset>
-          <legend>Validating a form with a radio and checkbox buttons</legend>
-          <fieldset>
-          <legend>Gender</legend>
-          <label for="gender_male">
-          <input type="radio" id="gender_male" value="m" name="gender" required>Male
-          </label>
-          <label for="gender_female">
-          <input type="radio" id="gender_female" value="f" name="gender">Female
-          </label>
-          <label for="gender" class="error">Please select your gender</label>
-          </fieldset>
-          
           <h2>Are You a US Citizen?</h2>
-          <input type="radio" name="citizen" value="yes">Yes<br>
-          <input type="radio" name="citizen" value="no">No          
+          <input type="radio" id="citizen-yes" name="citizen" value="y" required>Yes<br>
+          <input type="radio" id="citizen-no" name="citizen" value="n">No          
 
           <h2>Will you be 18 years old on November 8, 2016?</h2>
-          <input type="radio" name="ofage" value="yes">Yes<br>
-          <input type="radio" name="ofage" value="no">No
+          <input type="radio" id="ofage-yes" name="ofage" value="y" required>Yes<br>
+          <input type="radio" id="ofage-no" name="ofage" value="n">No
 
           <div class="form-group">
             <label for="firstname">First Name</label>
-            <input type="text" class="form-control" id="firstname" name="firstname" required>
+            <input type="text" class="form-control" id="firstname" placeholder="Required" name="firstname" required>
           </div>
 
           <div class="form-group">
             <label for="middlename">Middle Name</label>
-            <input type="text" class="form-control" id="middlename" name="middlename" >
+            <input type="text" class="form-control" id="middlename" placeholder="Not Required" name="middlename" >
             <p class="help-block">Not Required</p>
           </div>
 
           <div class="form-group">
             <label for="lastname">Last Name</label>
-            <input type="text" class="form-control" id="lastname" placeholder="lastname" name="lastname" required>
+            <input type="text" class="form-control" id="lastname" placeholder="Required" name="lastname" required>
           </div>
 
           <div class="form-group">
             <label for="haddress">Address</label>
-            <input type="text" class="form-control" id="haddress" placeholder="haddress" name="haddress" required>
+            <input type="text" class="form-control" id="haddress" placeholder="Required" name="haddress" required>
           </div> 
 
           <div class="form-group">
             <label for="hapt">Apartment Number</label>
-            <input type="text" class="form-control" id="hapt" placeholder="hapt" name="hapt" >
+            <input type="text" class="form-control" id="hapt" placeholder="Not Required" name="hapt" >
           </div>
 
           <div class="form-group">
             <label for="hcity">City</label>
-            <input type="text" class="form-control" id="hcity" placeholder="hcity" name="hcity" required>
+            <input type="text" class="form-control" id="hcity" placeholder="Required" name="hcity" required>
           </div>
 
           <div class="form-group">
             <label for="hstate">State</label>
-            <input type="text" class="form-control" id="hstate" placeholder="hstate" name="hstate" required>
+            <input type="text" class="form-control" id="hstate" placeholder="Required" name="hstate" required>
           </div>
 
           <div class="form-group">
             <label for="hzipcode">Zipcode</label>
-            <input type="text" class="hzipcode" id="hzipcode" name="hzipcode" required>
+            <input type="text" class="hzipcode" id="hzipcode" placeholder="Required" name="hzipcode" required>
             <p class="help-block">xxxxx</p>
           </div>
 
           <div class="form-group">
             <label for="dob">Date of Birth</label>
-            <input type="text" class="form-control" id="dob" placeholder="dob" name="dob" required>
+            <input type="text" class="form-control" id="dob" placeholder="Required" name="dob" required>
             <p class="help-block">xx/xx/xxxx</p>
           </div>
 
           <div class="form-group">
             <label for="tnumber">Telephone Number</label>
-            <input type="text" class="form-control" id="tnumber" placeholder="tnumber" name="tnumber" >
+            <input type="text" class="form-control" id="tnumber" placeholder="Not Required" name="tnumber" >
             <p class="help-block">xxx xxx xxxxx</p>
           </div>
 
           <div class="form-group">
             <label for="party">Political Party Affiliate</label>
-            <input type="text" class="form-control" id="party" placeholder="party" name="party" >
+            <input type="text" class="form-control" id="party" placeholder="Not Required" name="party" >
           </div>
 
           <div class="form-group">
             <label for="rore">Race or Ethnic Group</label>
-            <input type="text" class="form-control" id="rore" placeholder="rore" name="rore" >
+            <input type="text" class="form-control" id="rore" placeholder="Not Required" name="rore" >
           </div>
 
           <div class="form-group">
             <label for="sign">Signature</label>
-            <input type="text" class="form-control" id="sign" placeholder="sign" name="sign" required>
+            <input type="text" class="form-control" id="sign" placeholder="Required" name="sign" required>
           </div>
+
+          <div class="form-group">
+            <label for="howsend">How Would You Like to Send In Your Registration?</label>
+
 
           <button type="submit" class="btn btn-default">Submit</button>
       </form> 
