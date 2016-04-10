@@ -1,3 +1,5 @@
+//var fillPdf = require("fill-pdf");
+var pdfTemplatePath = "template.pdf";
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -68,11 +70,23 @@ app.use(function(err, req, res, next) {
   });
 });
 
+app.get('/fill-out', function(req,res){ //req will have the info they've filled
+  fillPdf();
+});
 
 app.get('/send', function(req, res){
   sendFax();
 });
 //in able to make this into a button or something
+
+function fillPdf(formData){
+  fillPdf.generatePdf(formData,pdfTemplatePath, function(err, output) {
+    if ( !err ) {
+      res.type("application/pdf");
+      res.send(output);
+    }});
+}
+
 
 
 module.exports = app;

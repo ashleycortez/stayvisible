@@ -3,9 +3,11 @@ var Schema = mongoose.Schema;
 
 // See http://mongoosejs.com/docs/schematypes.html
 
-var addressSchema = new Schema ({
-  citizen: Boolean,
-  ofage: Boolean,
+var voterSchema = new Schema ({
+  citizenYes: Boolean,
+  citizenNo: Boolean, 
+  ofageYes: Boolean,
+  ofageNo: Boolean,
   lastname: String,
   firstname: String,
   middlename: String,
@@ -13,24 +15,20 @@ var addressSchema = new Schema ({
   hapt: String,
   hcity: String,
   hstate: String,
-  hzcode: Number,
+  hzcode: String,
   maddress: String,
   mapt: String,
   mcity: String,
   mstate: String,
-  mzcode: Number,
-  dob: Number,
-  tnumber: Number,
+  mzcode: String,
+  dob: String,
+  idnumber: String,
+  tnumber: String,
   party: String,
   rore: String,
-  sign: String,
-  dateAdded : { type: Date, default: Date.now },
-  paddress: String,
-  papt: String,
-  pcity: String,
-  pstate: String,
-  pzcode: Number,
-})
+  dateAdded : { type: Date, default: Date.now }
+
+});
 
 // export 'Person' model so we can interact with it in other files
-module.exports = mongoose.model('Updateaddress', addressSchema);
+module.exports = mongoose.model('Voter',voterSchema);

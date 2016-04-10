@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Registration Complete</title>
+    <title>Thanks!</title>
 
     <!-- Custom Font - Change 'Muli' to the font you want -->
     <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <!-- Custom CSS inside CSS folder -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../public/css/main.css">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -24,8 +24,52 @@
     <![endif]-->
   </head>
   <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+
+    <div id="header">
+      <h1>You're done!<h2>    
+    </div>
+
+<!-- text underneath the Pdf form -->
     <div class="container">
-      <p>Hey this is the registration complete page</p>
+      <h3>Thanks for registering to vote!</h3>
+    </div>
+
+<!-- row of buttons -->
+      <div>
+        <div class="container">
+          <div class="row">
+            <h1>Send me up to date information about voting: Including dates and polling locations</h2>
+            <form action="demo_form.asp">
+              <input type="checkbox" name="email" value="email">Get voting information via email<br>
+              <input type="checkbox" name="tnumber" value="tnumber" checked>Get voting information via text<br>
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+        </div>
+    </div>
+
+    <div clas="container">
+      <p>Share that you registered to vote via, spread the word and help others Stay Visible:</p>
+      <div class="fb-share-button" data-href="http://www.stayvisible.herokuapp.com" data-layout="button"></div>
+      <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+      <a href="https://twitter.com/intent/tweet?button_hashtag=stay_visible&text=This%20election%20season%20I've%20chosen%20to%20Stay%20Visible.%20You%20should%2C%20too.%20%23stay_visible" class="twitter-hashtag-button" data-related="stay_visible" data-url="http://stayvisible.herokuapp.com">Tweet #stay_visible</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      Pinterest
     </div>
   </body>
 
@@ -33,26 +77,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 
     <!-- CUSTOM JS -->
-    <script src="js/main.js"></script>
+    <script src="../public/js/main.js"></script>
 
     <!-- JQuery validate -->
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
     
     <script type="text/javascript">
-      $("form").validate({
-          rules: {
-            // compound rule
-            itpYear: {
-              required: true,
-              number: true
-            },
-            link: {
-              required: true,
-              url: true
-            }            
-          }
 
-      });
     </script>
 
 

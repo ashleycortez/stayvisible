@@ -1,15 +1,24 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
+var fs = require('fs');
+var AWS = require('aws-sdk');
+var multipart = require('connect-multiparty');
+// var pdfFillForm = require('pdf-fill-form');
 
 // our db models
 var Person = require("../models/person.js");
-var Updateaddress = require("../models/updateaddress.js");
-var Updatename = require("../models/updatename.js");
+
+//pdf model
+var Voter = require("../models/voterInfo.js");
+
+//don't need this cause I'm not using these models to update the database
+//var Updateaddress = require("../models/updateaddress.js");
+//var Updatename = require("../models/updatename.js");
 
 
 // S3 File dependencies
-var AWS = require('aws-sdk');
+
 var awsBucketName = process.env.AWS_BUCKET_NAME;
 var s3Path = process.env.AWS_S3_PATH; // TODO - we shouldn't hard code the path, but get a temp URL dynamically using aws-sdk's getObject
 AWS.config.update({
@@ -19,9 +28,15 @@ AWS.config.update({
 var s3 = new AWS.S3();
 
 // file processing dependencies
-var fs = require('fs');
-var multipart = require('connect-multiparty');
+
+
 var multipartMiddleware = multipart();
+
+
+//pdf-fill-form
+
+
+
 
 /**
  * GET '/'
@@ -34,8 +49,8 @@ router.get('/', function(req, res) {
   console.log('home page requested!');
 
   var jsonData = {
-  	'name': 'voter-info',
-  	'api-status':'OK'
+    'name': 'voter-info',
+    'api-status':'OK'
   }
 
   // respond with json data
@@ -46,239 +61,224 @@ router.get('/', function(req, res) {
 
   // respond with html
   //testing - res.render('registerhome.html')
-  res.render('registerhome.html')
+  res.render('aboutme.html');
 
 });
 
 router.get('/aboutme', function(req,res){
 
-  res.render('aboutme.html')
+  res.render('aboutme.html');
 
-})
+});
 
 router.get('/new-registration', function(req,res){
 
-  res.render('new-registration.html')
+  res.render('new-registration.html');
 
-})
+});
 
 router.get('/edit-form', function(req,res){
 
-  res.render('edit-form.html')
+  res.render('edit-form.html');
 
-})
+});
 
 router.get('/registrationcomplete', function(req,res){
 
-  res.render('registrationcomplete.html')
+  res.render('registrationcomplete.html');
 
-})
+});
 
-router.get('/render-form', function(req,res){
+router.get('/renderform', function(req,res){
 
-  res.render('render-form.html')
+  res.render('renderform.html');
 
-})
+});
 
 router.get('/updateaddress', function(req,res){
 
-  res.render('updateaddress.html')
+  res.render('updateaddress.html');
 
-})
+});
 
 router.get('/updatename', function(req,res){
 
-  res.render('updatename.html')
+  res.render('updatename.html');
 
-})
-
-
-router.get('/edit/:id', function(req,res){
-
-  var requestedId = req.params.id;
-
-  Person.findById(requestedId,function(err,data){
-    if(err){
-      var error = {
-        status: "ERROR",
-        message: err
-      }
-      return res.json(err)
-    }
-
-    console.log(data); 
-
-    var viewData = {
-      pageTitle: "Edit " + data.name,
-      person: data
-    }
-
-    res.render('edit-form.html',viewData);
-
-  })
-
-})
-
-router.get('/edit/:id', function(req,res){
-
-  var requestedId = req.params.id;
-
-  Person.findById(requestedId,function(err,data){
-    if(err){
-      var error = {
-        status: "ERROR",
-        message: err
-      }
-      return res.json(err)
-    }
-
-    var viewData = {
-      status: "OK",
-      person: data
-    }
-
-    return res.render('edit-form.html',viewData);
-  })
-
-})
+});
 
 
-router.post('/api/create', function(req,res){
+          router.get('/edit/:id', function(req,res){
 
-  console.log(req.body);
+            var requestedId = req.params.id;
 
-  var personObj = {
-    citizen: req.body.citizen,
-    ofage: req.body.ofage,
-    lastname: req.body.lastname,
-    firstname: req.body.firstname,
-    middlename: req.body.middlename,
-    clastname: req.body.clastname,
-    cfirstname: req.body.cfirstname,
-    cmiddlename: req.body.cmiddlename,
-    haddress: req.body.haddress,
-    hapt: req.body.hapt,
-    hcity: req.body.hcity,
-    hstate: req.body.hstate,
-    hzcode: req.body.hzcode,
-    maddress: req.body.maddress,
-    mapt: req.body.mapt,
-    mcity: req.body.mcity,
-    mstate: req.body.mstate,
-    mzcode: req.body.mzcode,
-    chaddress: req.body.chaddress,
-    chapt: req.body.chapt,
-    chcity: req.body.chcity,
-    chstate: req.body.chstate,
-    chzcode: req.body.chzcode,
-    cmaddress: req.body.cmaddress,
-    cmapt: req.body.cmapt,
-    cmcity: req.body.cmcity,
-    cmstate: req.body.cmstate,
-    cmzcode: req.body.cmzcode,
-    dob: req.body.dob,
-    tnumber: req.body.tnumber,
-    party: req.body.party,
-    rore: req.body.rore,
-    sign: req.body.sign,
-    dateAdded : { type: Date, default: Date.now },
-    link: req.body.link,
-    imageUrl: req.body.imageUrl,
-    slug : req.body.name.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-')
-  }
+            Person.findById(requestedId,function(err,data){
+              if(err){
+                var error = {
+                  status: "ERROR",
+                  message: err
+                };
+                return res.json(err)
+              };
 
-  if (req.body.hasGlasses == 'yes') personObj['hasGlasses'] = true;
-  else personObj['hasGlasses'] = false;
+              console.log(data); 
 
-  var person = new Person(personObj);
+              var viewData = {
+                pageTitle: "Edit " + data.name,
+                person: data
+              };
 
-  person.save(function(err,data){
-    if(err){
-      var error = {
-        status: "ERROR",
-        message: err
-      }
-      return res.json(err)
-    }
+              res.render('edit-form.html',viewData);
 
-    var jsonData = {
-      status: "OK",
-      person: data
-    }
+            });
 
-    return res.json(jsonData);
+          });
 
-  })
 
-})
 
-router.post('/api/edit/:id', function(req,res){
+                  router.get('/edit/:id', function(req,res){
 
-  console.log(req.body);
-  var requestedId = req.params.id;
+                    var requestedId = req.params.id;
 
-  var personObj = {
-    citizen: req.body.citizen,
-    ofage: req.body.ofage,
-    lastname: req.body.lastname,
-    firstname: req.body.firstname,
-    middlename: req.body.middlename,
-    clastname: req.body.clastname,
-    cfirstname: req.body.cfirstname,
-    cmiddlename: req.body.cmiddlename,
-    haddress: req.body.haddress,
-    hapt: req.body.hapt,
-    hcity: req.body.hcity,
-    hstate: req.body.hstate,
-    hzcode: req.body.hzcode,
-    maddress: req.body.maddress,
-    mapt: req.body.mapt,
-    mcity: req.body.mcity,
-    mstate: req.body.mstate,
-    mzcode: req.body.mzcode,
-    chaddress: req.body.chaddress,
-    chapt: req.body.chapt,
-    chcity: req.body.chcity,
-    chstate: req.body.chstate,
-    chzcode: req.body.chzcode,
-    cmaddress: req.body.cmaddress,
-    cmapt: req.body.cmapt,
-    cmcity: req.body.cmcity,
-    cmstate: req.body.cmstate,
-    cmzcode: req.body.cmzcode,
-    dob: req.body.dob,
-    tnumber: req.body.tnumber,
-    party: req.body.party,
-    rore: req.body.rore,
-    sign: req.body.sign,
-    dateAdded : { type: Date, default: Date.now },
-    link: req.body.link,
-    imageUrl: req.body.imageUrl,
-    slug : req.body.name.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-')
-  }
-  console.log(personObj);
+                    Person.findById(requestedId,function(err,data){
+                      if(err){
+                        var error = {
+                          status: "ERROR",
+                          message: err
+                        }
+                        return res.json(err)
+                      }
 
-  Person.findByIdAndUpdate(requestedId,personObj,function(err,data){
-    if(err){
-      var error = {
-        status: "ERROR",
-        message: err
-      }
-      return res.json(error)
-    }
+                      var viewData = {
+                        status: "OK",
+                        person: data
+                      };
 
-    var jsonData = {
-      status: "OK",
-      person: data
-    }
+                      return res.render('edit-form.html',viewData);
+                    });
 
-    //return res.json(jsonData);
+                  });
 
-    return res.redirect('/render-form');
 
-  })
 
-})
+
+                                        router.post('/submit_form', function(req,res){
+
+                                          console.log("this is happening");
+
+                                          res.render("renderform.html", {
+
+
+                                          });
+
+                                        });
+
+                                          //map to data model
+                                        //   var personObj = {
+                                        //     lastname: req.body.lastname,
+                                        //     firstname: req.body.firstname,
+                                        //     middlename: req.body.middlename,
+                                        //     tnumber: req.body.tnumber,
+                                        //     email: req.body.email,
+                                        //     zcode: req.body.zcode
+                                        //   }
+
+                                        //   var person = new Person(personObj);
+                                          
+                                        //   //save your person to the database!
+                                        //   person.save(function(err,data){
+                                        //     if(err){
+                                        //       var error = {
+                                        //         status: "ERROR",
+                                        //         message: err
+                                        //       }
+                                        //       return res.json(err)
+                                        //     }
+
+                                        //     //You don't need to send this back
+                                        //     // var jsonData = {
+                                        //     //   status: "OK",
+                                        //     //   person: data
+                                        //     // }
+
+                                        //     //map data from form to PDF
+                                        //     //PDF form library thingy
+
+                                        //     //send PDF back to browser
+                                        //     //need to send back as a file stream
+                                        //     return res.json(jsonData);
+
+                                        //   })
+
+                                        // });
+
+// router.post('/api/edit/:id', function(req,res){
+
+//   console.log(req.body);
+//   var requestedId = req.params.id;
+
+//   var personObj = {
+//     citizen: req.body.citizen,
+//     ofage: req.body.ofage,
+//     lastname: req.body.lastname,
+//     firstname: req.body.firstname,
+//     middlename: req.body.middlename,
+//     clastname: req.body.clastname,
+//     cfirstname: req.body.cfirstname,
+//     cmiddlename: req.body.cmiddlename,
+//     haddress: req.body.haddress,
+//     hapt: req.body.hapt,
+//     hcity: req.body.hcity,
+//     hstate: req.body.hstate,
+//     hzcode: req.body.hzcode,
+//     maddress: req.body.maddress,
+//     mapt: req.body.mapt,
+//     mcity: req.body.mcity,
+//     mstate: req.body.mstate,
+//     mzcode: req.body.mzcode,
+//     chaddress: req.body.chaddress,
+//     chapt: req.body.chapt,
+//     chcity: req.body.chcity,
+//     chstate: req.body.chstate,
+//     chzcode: req.body.chzcode,
+//     cmaddress: req.body.cmaddress,
+//     cmapt: req.body.cmapt,
+//     cmcity: req.body.cmcity,
+//     cmstate: req.body.cmstate,
+//     cmzcode: req.body.cmzcode,
+//     dob: req.body.dob,
+//     tnumber: req.body.tnumber,
+//     party: req.body.party,
+//     rore: req.body.rore,
+//     sign: req.body.sign,
+//     dateAdded : { type: Date, default: Date.now },
+//     link: req.body.link,
+//     imageUrl: req.body.imageUrl,
+//     slug : req.body.name.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-')
+//   }
+//   console.log(personObj);
+
+//   Person.findByIdAndUpdate(requestedId,personObj,function(err,data){
+//     if(err){
+//       var error = {
+//         status: "ERROR",
+//         message: err
+//       }
+//       return res.json(error)
+//     }
+
+//     var jsonData = {
+//       status: "OK",
+//       person: data
+//     }
+
+//     //return res.json(jsonData);
+
+//     return res.redirect('/render-form');
+
+//   })
+
+// })
 
 router.post('/api/create/image', multipartMiddleware, function(req,res){
 
@@ -340,105 +340,173 @@ router.post('/api/create/image', multipartMiddleware, function(req,res){
   var cleanedFileName = cleanFileName(filename);
 
   // We first need to open and read the uploaded image into a buffer
-  fs.readFile(path, function(err, file_buffer){
+              
 
-    // reference to the Amazon S3 Bucket
-    var s3bucket = new AWS.S3({params: {Bucket: awsBucketName}});
+
+
+
+                  fs.readFile(path, function(err, file_buffer){
+                  //how to get the form data formatted right for the PDF
+                  //PDF library creates the file --> file_buffer
+
+                    // reference to the Amazon S3 Bucket
+                    var s3bucket = new AWS.S3({params: {Bucket: awsBucketName}});
+                    
+                    // Set the bucket object properties
+                    // Key == filename
+                    // Body == contents of file
+                    // ACL == Should it be public? Private?
+                    // ContentType == MimeType of file ie. image/jpeg.
+                    var params = {
+                      Key: cleanedFileName,
+                      Body: file_buffer,
+                      ACL: 'public-read',
+                      ContentType: mimeType
+                    };
+
+                  });
+                  
+
+  //returning the file buffer as your POST response
+  //object file_buffer & mimetype/contenttype
+  //figure out how to use express to send back a file stream
+
+
+ //app.post('/url/to/hit', function(req, res, next) {
+  //pdf form filler thingy -->
+  //Reading an existing PDF
+  // var stream = fs.readStream('/location/of/pdf');
+
+  //take the form and properly map it to a new PDF object
+  // var pdfFields = {
+  //   {FieldName:"name",
+  //   Value: request.body.name}
+    //etc.
+  // }
+  // //Creating one for you with magic
+  // var myPDF = pdfThingy.create(pdfFields, blah, function(fileBuffer){
+  //   return fileBuffer;
+  // });
+
+//goes up at the top
+// var pdfFillForm = require('pdf-fill-form');
+// var fs = require('fs');
+
+// Use here the field names you got from read
+// var pdfData = { 
+//   "FileNameAlt": response.body.name,
+//   //etc
+// }
+
+// pdfFillForm.writeAsync(fileName='string', data='{}', instructions={}, 
+//     function(err, pdf) {
+//         fs.writeFile("filled_test.pdf", pdf, function(err){});
+//     }
+// );
+
+// pdfFillForm.writeAsync('test.pdf', pdfData, { "save": "pdf" }, function(err, pdf){
+//   //pass back the pdf and set the headers
+//    //whatever you want it to be
+//     var filename = "WhateverFilenameYouWant.pdf"; 
+//   // Be careful of special characters
+//     filename = encodeURIComponent(filename);
+//   // Ideally this should strip them
+
+//   //Header of the response
+//     res.setHeader('Content-disposition', 'inline; filename="' + filename + '"');
+//     res.setHeader('Content-type', 'application/pdf');
+
+//     myPDF.pipe(res);
+// })
+
+// return res;
+ 
+ 
+//});
+
+
+      // Put the above Object in the Bucket
+//     s3bucket.putObject(params, function(err, data) {
+//       if (err) {
+//         console.log(err)
+//         return;
+//       } else {
+//         console.log("Successfully uploaded data to s3 bucket");
+
+//         // now that we have the image
+//         // we can add the s3 url our person object from above
+//         personObj['imageUrl'] = s3Path + cleanedFileName;
+
+//         // now, we can create our person instance
+//         var person = new Person(personObj);
+
+//         person.save(function(err,data){
+//           if(err){
+//             var error = {
+//               status: "ERROR",
+//               message: err
+//             }
+//             return res.json(err)
+//           }
+
+//           var jsonData = {
+//             status: "OK",
+//             person: data
+//           }
+
+//           return res.json(jsonData);        
+//         })
+
+//       }
+
+//     }); // end of putObject function
+
+//   });// end of read file
+
+// })
+
+// function cleanFileName (filename) {
     
-    // Set the bucket object properties
-    // Key == filename
-    // Body == contents of file
-    // ACL == Should it be public? Private?
-    // ContentType == MimeType of file ie. image/jpeg.
-    var params = {
-      Key: cleanedFileName,
-      Body: file_buffer,
-      ACL: 'public-read',
-      ContentType: mimeType
-    };
+//     // cleans and generates new filename for example userID=abc123 and filename="My Pet Dog.jpg"
+//     // will return "abc123_my_pet_dog.jpg"
+//     var fileParts = filename.split(".");
     
-    // Put the above Object in the Bucket
-    s3bucket.putObject(params, function(err, data) {
-      if (err) {
-        console.log(err)
-        return;
-      } else {
-        console.log("Successfully uploaded data to s3 bucket");
-
-        // now that we have the image
-        // we can add the s3 url our person object from above
-        personObj['imageUrl'] = s3Path + cleanedFileName;
-
-        // now, we can create our person instance
-        var person = new Person(personObj);
-
-        person.save(function(err,data){
-          if(err){
-            var error = {
-              status: "ERROR",
-              message: err
-            }
-            return res.json(err)
-          }
-
-          var jsonData = {
-            status: "OK",
-            person: data
-          }
-
-          return res.json(jsonData);        
-        })
-
-      }
-
-    }); // end of putObject function
-
-  });// end of read file
-
-})
-
-function cleanFileName (filename) {
+//     //get the file extension
+//     var fileExtension = fileParts[fileParts.length-1]; //get last part of file
     
-    // cleans and generates new filename for example userID=abc123 and filename="My Pet Dog.jpg"
-    // will return "abc123_my_pet_dog.jpg"
-    var fileParts = filename.split(".");
+//     //add time string to make filename a little more random
+//     d = new Date();
+//     timeStr = d.getTime();
     
-    //get the file extension
-    var fileExtension = fileParts[fileParts.length-1]; //get last part of file
+//     //name without extension
+//     newFileName = fileParts[0];
     
-    //add time string to make filename a little more random
-    d = new Date();
-    timeStr = d.getTime();
+//     return newFilename = timeStr + "_" + fileParts[0].toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'_') + "." + fileExtension;
     
-    //name without extension
-    newFileName = fileParts[0];
-    
-    return newFilename = timeStr + "_" + fileParts[0].toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'_') + "." + fileExtension;
-    
-}
+// }
 
-router.get('/api/get', function(req,res){
+// router.get('/api/get', function(req,res){
 
-  Person.find(function(err,data){
+//   Person.find(function(err,data){
 
-      if(err){
-        var error = {
-          status: "ERROR",
-          message: err
-        }
-        return res.json(err)
-      }
+//       if(err){
+//         var error = {
+//           status: "ERROR",
+//           message: err
+//         }
+//         return res.json(err)
+//       }
 
-      var jsonData = {
-        status: "OK",
-        people: data
-      }
+//       var jsonData = {
+//         status: "OK",
+//         people: data
+//       }
 
-      return res.json(jsonData);
+//       return res.json(jsonData);
 
-  })
+//   })
 
-})
+// })
 
 // router.get('/api/get/year/:itpYear',function(req,res){
 
@@ -497,9 +565,11 @@ router.get('/api/get', function(req,res){
 
 // })
 
+});   // THIS IS IMPORTANT
 
 
 module.exports = router;
+
 
 
 

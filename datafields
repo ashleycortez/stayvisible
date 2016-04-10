@@ -1,0 +1,470 @@
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField1[2]
+FieldNameAlt: Last Name
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField1[1]
+FieldNameAlt: First Name
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField1[0]
+FieldNameAlt: Middle Name
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField2[0]
+FieldNameAlt: Home Address
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField3[0]
+FieldNameAlt: Apartment or Lot Number
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField4[0]
+FieldNameAlt: City / Town
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField5[0]
+FieldNameAlt: State
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField6[0]
+FieldNameAlt: Zip Code
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField7[0]
+FieldNameAlt: Address where you get your mail if different from your home address above.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField8[0]
+FieldNameAlt: City /  Town
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField9[0]
+FieldNameAlt: State
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField10[0]
+FieldNameAlt: Zip Code
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].DateTimeField1[0]
+FieldNameAlt: Date of Birth. Please enter the date with 2 digits each for month, day, and year, in that order. Do Not Use Separators. Example, January First Two Thousand Eight is entered as Zero One, Zero One, Zero Eight.
+FieldFlags: 8388610
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].NumericField1[0]
+FieldNameAlt: Please Enter Your 10 Digit Phone Number, beginning with the Area Code. Do Not Use Separators.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField11[0]
+FieldNameAlt: Identification Number. Refer to item 6 in the instructions for your state for valid options. Enter the number in the format provided on the identification card, using appropriate separators.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField22[0]
+FieldNameAlt: Choice of Party. Refer to item 7 in the instructions for your state.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField23[0]
+FieldNameAlt: Race or Ethnic Group. Refer to item 8 in the instructions for you state.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField12[0]
+FieldNameAlt: Last Name
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField13[0]
+FieldNameAlt: First Name
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField14[0]
+FieldNameAlt: Middle Name
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField15[0]
+FieldNameAlt: If you were registered before but this is the 1st time you are registering from the home address provided above, provide the address where you were registered before. Street or route and box number.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField16[0]
+FieldNameAlt: Apartment or Lot Number
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField17[0]
+FieldNameAlt: City / Town / County
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField18[0]
+FieldNameAlt: State
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField19[0]
+FieldNameAlt: Zip Code
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page4[0].TextField20[0]
+FieldNameAlt: If the applicant is unable to sign, who helped the applicant fill out this application? Give name, address, and phone number (phone number is optional).
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: 
+FieldName: topmostSubform[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: EW Street
+FieldNameAlt: Enter Name of East-to-West Street nearest to where you live
+FieldFlags: 8388608
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: SN Street
+FieldNameAlt: Enter Name of North-to-South Street nearest to where you live
+FieldFlags: 8388608
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: 1-1
+FieldNameAlt: Check if you live on the North West Block of the Intesection, farther from the Intersection
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: 1-2
+FieldNameAlt: Check if you live on the North West Block of the Intesection, close to the Intersection
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: 1-3
+FieldNameAlt: Check if you live on the North East Block of the Intesection, close to the Intersection
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: 1-4
+FieldNameAlt: Check if you live on the North East Block of the Intesection, farther from the Intersection
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: 1-5
+FieldNameAlt: Check if you live on the South West Block of the Intesection, farther from the Intersection
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: 1-6
+FieldNameAlt: Check if you live on the South West Block of the Intesection, close to the Intersection
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: 1-7
+FieldNameAlt: Check if you live on the South East Block of the Intesection, close to the Intersection
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: 1-8
+FieldNameAlt: Check if you live on the South East Block of the Intesection, farther from the Intersection
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: 2-1
+FieldNameAlt: Check to specify a Landmark on the North West Block of the Intersection
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Text
+FieldName: 2-1-1
+FieldNameAlt: Enter Landmark on North West Block of Intersection
+FieldFlags: 8388608
+FieldJustification: Center
+---
+FieldType: Button
+FieldName: 3-1
+FieldNameAlt: Check to specify a Landmark on the North East Block of the Intersection
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Text
+FieldName: 3-1-1
+FieldNameAlt: Enter Landmark on North East Block of Intersection
+FieldFlags: 8388608
+FieldJustification: Center
+---
+FieldType: Button
+FieldName: 4-1
+FieldNameAlt: Check to specify a Landmark on the South West Block of the Intersection
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Text
+FieldName: 4-1-1
+FieldNameAlt: Enter Landmark on South West Block of Intersection
+FieldFlags: 8388608
+FieldJustification: Center
+---
+FieldType: Button
+FieldName: 5-1
+FieldNameAlt: Check to specify a Landmark on the South East Block of the Intersection
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Text
+FieldName: 5-1-1
+FieldNameAlt: Enter Landmark on South East Block of Intersection
+FieldFlags: 8388608
+FieldJustification: Center
+---
+FieldType: Button
+FieldName: E1
+FieldNameAlt: Are you a citizen of the United States of America? Check if Yes
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: E2
+FieldNameAlt: Are you a citizen of the United States of America? Check if No
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: F2
+FieldNameAlt: Will you be 18 years old on or before election day? Check if No
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: F1
+FieldNameAlt: Will you be 18 years old on or before election day? Check if Yes
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: A1
+FieldNameAlt: Salutation: Mr.
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: A2
+FieldNameAlt: Mrs.
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: A3
+FieldNameAlt: Miss 
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: A4
+FieldNameAlt: Ms.
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: B1
+FieldNameAlt: Name Suffix: Junior
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: B2
+FieldNameAlt: Senior 
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: B3
+FieldNameAlt: The Second
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: B4
+FieldNameAlt: The Third
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: B5
+FieldNameAlt: The Fourth
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: D1
+FieldNameAlt: Name Suffix: Junior
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: D2
+FieldNameAlt: Senior
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: D3
+FieldNameAlt: The Second
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: D4
+FieldNameAlt: The Third
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: D5
+FieldNameAlt: The Fourth
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: C1
+FieldNameAlt: Salutation: Mr.
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: C2
+FieldNameAlt: Mrs.
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: C3
+FieldNameAlt: Miss
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+---
+FieldType: Button
+FieldName: C4
+FieldNameAlt: Ms.
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: On
+Ashleys-MBP-5:stayvisible ashleyfuckingcortez$ 

@@ -24,3 +24,8 @@ function sendFax(number, message) {
 }
 
 sendFax('2129981898', 'hello! this is a test');
+//sendfax
+
+function findCounty(number){
+	if 
+}

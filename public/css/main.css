@@ -1,0 +1,440 @@
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+html {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+
+/* ===== Parallax Master Class ==============================================
+   Author: Petr Tichy - ihatetomatoes.net
+   ========================================================================== */
+
+body {
+    font: 16px/1.5 'Raleway', Helvetica, Helvetica Neue, Arial, sans-serif;
+    background-color: #f8f8ff;
+}
+
+.wrapper {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1140px;
+}
+
+/* =General */
+
+#offset {
+    position: fixed;
+    top: 0;
+    text-align: center;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    padding: 10px 0;
+    z-index: 9999;
+}
+
+#progressBar {
+    background-color: #000;
+    height: 10px;
+    width: 0;
+    position: fixed;
+    top: 10;
+    left: 0;
+    z-index: 2000;
+}
+
+/* =Header */
+header {
+    background: url('../public/img/header-logo.png') no-repeat top center;
+    color: #fff;
+    text-align: center;
+    padding: 140px 0 20px 0;
+    position: relative;
+    z-index: 2;
+}
+    header h1 {
+        color: #000;
+        font-size: 1.5em;
+        line-height: 1.2em;
+        text-transform: uppercase;
+    }
+    header p {
+        color: #000;
+        line-height: 1.2em;
+    }
+
+/* =Profiles */
+main { }
+    #profiles {
+        background: url('../img/background-flag.png') repeat-y top center;
+        background-attachment: fixed;
+        color: rgb(255,0,0);
+        position: relative;
+        background-size: auto 45px;
+        z-index: 2;
+    }
+    .boxer {
+        width: 45%;
+        margin: 0 5%;
+        padding: 210px 0 20px 0;
+        position: relative;
+    }
+    .boxerA {
+        margin-left: 0;
+    }
+    .boxer h2 {
+        margin-top: 0;
+        font-size: 1.2em;
+        line-height: 1.2em;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    .boxer p {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
+    }
+    .boxerA { float: left; margin-left: 0;}
+    .boxerB { float: right; margin-right: 0;}
+    .boxerImg {
+        width: 138px;
+        height: 152px;
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        margin-left: -69px;
+    }
+
+    }
+    .boxerA .boxerImg {
+        background: url('../img/citizen.png') no-repeat top left;
+        background-size: 138px 152px;
+    }
+    .boxerB .boxerImg {
+        background: url('../img/agecake.png') no-repeat top left;
+        background-size: 138px 152px;
+    }
+
+/* =Boxing Ring */
+#boxingRing {
+    background-color: #e7e7e7;
+    position: relative;
+    height: 344px;
+}
+    #stage {
+        width: 300px;
+        height: 273px;
+        background: url('../img/usa-map.svg') no-repeat top right;
+        background-size: 300px 273px;
+        position: absolute;
+        top: 35px;
+        left: 50%;
+        margin-left: -150px;
+    }
+    #stateNY {
+            width: 718px;
+            height: 654px;
+            background: url('../img/new-york.svg') no-repeat top right;
+            background-size: 718px 654px;
+            position: absolute;
+            top: 130px;
+            left: 50%;
+            margin-left: -359px;
+        }
+
+    .hidden{
+        display:none;
+    }
+
+/* =Form */
+
+
+}
+/* =Footer */
+footer {
+    background-color: #ffffff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+
+}
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 480px) {
+    /* =General */
+
+    /* =Header */
+
+    /* =Profiles */
+
+    /* =Boxing Ring */
+
+    /* =Footer */
+}
+
+@media only screen and (min-width: 768px) {
+    /* =General */
+
+    /* =Header */
+    header {
+        background-image: url('../img/header-logo.png');
+        padding: 420px 0 20px 0;
+    }
+    header h1 {
+        font-size: 3.125em;
+    }
+    header p {
+        font-size: 2em;
+        line-height: 1.2em;
+    }
+    /* =Profiles */
+    #profiles {
+        background-size: auto auto;
+    }
+        #profiles:after {
+            top: 170px;
+            width: 150px;
+            margin-left: -78px;
+            font-size: 3.75em;
+        }
+        .boxer {
+            padding-top: 380px;
+        }
+        .boxer h2 {
+            font-size: 2.5em;
+            line-height: 1.12em;
+            text-align: left;
+        }
+        .boxer p {
+            font-family: 'Raleway', Helvetica, Helvetica Neue, Arial, sans-serif;
+            font-weight: normal;
+        }
+        .boxerImg {
+            width: 276px;
+            height: 305px;
+            top: 60px;
+            margin-left: -138px;
+            background-size: 100% 100%;
+        }
+        .boxerA .boxerImg,
+        .boxerB .boxerImg {
+            background-size: 100% 100%;
+        }
+    /* =Boxing Ring */
+    #boxingRing {
+        background-color: #e7e7e7;
+        position: relative;
+        height: 925px;
+    }
+        #stage {
+            width: 718px;
+            height: 654px;
+            background: url('../img/usa-map.svg') no-repeat top right;
+            background-size: 718px 654px;
+            position: absolute;
+            top: 130px;
+            left: 50%;
+            margin-left: -359px;
+        }
+        #stateNY {
+            width: 718px;
+            height: 654px;
+            background: url('../img/new-york.svg') no-repeat top right;
+            background-size: 718px 654px;
+            position: absolute;
+            top: 130px;
+            left: 50%;
+            margin-left: -359px;
+        }
+    /* =Footer */
+}
+
+@media only screen and (min-width: 1140px) {
+    /* =General */
+
+    /* =Header */
+
+    /* =Profiles */
+
+    /* =Boxing Ring */
+
+    /* =Footer */
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
