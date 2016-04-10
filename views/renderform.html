@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <!-- Custom CSS inside CSS folder -->
-    <link rel="stylesheet" href="../public/css/main.css">
+    <link rel="stylesheet" href="/css/main.css">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -31,7 +31,9 @@
 
 <!-- where I want the pdf to render-->
     <div id="container" >
-      <div id="pdfInfo"><p>this is where the info will show up</p></div><!-- Changed variable on Sunday with Justin-->
+      <div id="pdfInfo"><p>this is where the info will show up</p>
+        {{ln}}, {{fn}} {{mn}}
+      </div><!-- Changed variable on Sunday with Justin-->
     </div>
 <!--       <p>hey this is where the rendered form will be</p> -->
 
@@ -64,7 +66,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 
     <!-- CUSTOM JS -->
-    <script src="../public/js/main.js"></script>
+    <script src="/js/main.js"></script>
 
     <!-- JQuery validate -->
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>

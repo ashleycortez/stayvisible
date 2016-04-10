@@ -164,10 +164,14 @@ router.get('/updatename', function(req,res){
 
                                         router.post('/submit_form', function(req,res){
 
-                                          console.log("this is happening");
+                                          console.log("this is happening to you");
+                                          console.log(req.body.lastname);
 
                                           res.render("renderform.html", {
-
+                                            
+                                            ln:req.body.lastname,
+                                            fn:req.body.firstname,
+                                            mn: req.body.middlename
 
                                           });
 
