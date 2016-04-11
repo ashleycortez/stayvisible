@@ -32,7 +32,9 @@
 <!-- where I want the pdf to render-->
     <div id="container" >
       <div id="pdfInfo"><p>this is where the info will show up</p>
+
         {{ln}}, {{fn}} {{mn}}
+        
       </div><!-- Changed variable on Sunday with Justin-->
     </div>
 <!--       <p>hey this is where the rendered form will be</p> -->
@@ -45,7 +47,9 @@
 <!-- row of buttons -->
       <div>
         <div class="row">
+          <form action="/resubmit" method="POST">
           <button type="submit" class="btn btn-default">Edit It</button>
+          </form>
           <button type="submit" class="btn btn-default">Looks Great!</button>
        </div>
      </div>

@@ -162,20 +162,101 @@ router.get('/updatename', function(req,res){
 
 
 
-                                        router.post('/submit_form', function(req,res){
+                    router.post('/submit_form', function(req,res){
 
-                                          console.log("this is happening to you");
-                                          console.log(req.body.lastname);
+                          var lastname = req.body.lastname;
+                          var firstname = req.body.firstname;
+                          var middlename = req.body.middlename;
+                          var citizen = req.body.citizen;
+                          var ofage = req.body.ofage;
+                          var lastname = req.body.lastname;
+                          var firstname = req.body.firstname;
+                          var middlename = req.body.middlename;
+                          var haddress = req.body.haddress;
+                          var hapt = req.body.hapt;
+                          var hcity = req.body.hcity;
+                          var hstate = req.body.hstate;
+                          var hzcode = req.body.hzcode;
+                          var maddress = req.body.maddress;
+                          var mapt = req.body.mapt;
+                          var mcity = req.body.mcity;
+                          var mstate = req.body.mstate;
+                          var mzcode = req.body.mzcode;
+                          var dob = req.body.dob;
+                          var tnumber = req.body.tnumber;
+                          var party = req.body.party;
+                          var rore = req.body.rore;
+                          var email = req.body.email;
+                          var sign = req.body.sign; 
+                          //these need to be all made
 
-                                          res.render("renderform.html", {
-                                            
-                                            ln:req.body.lastname,
-                                            fn:req.body.firstname,
-                                            mn: req.body.middlename
+                          console.log("this is happening to you");
+                          console.log(req.body.lastname);
 
-                                          });
 
+                              res.render("renderform.html", {
+
+                                ln: lastname,
+                                fn: firstname,
+                                mn: middlename,
+                                cz: citizen, 
+                                of: ofage,
+                                ha: haddress,
+                                hap: hapt,
+                                hc: hcity,
+                                hs: hstate,
+                                hz: hzcode,
+                                ma: maddress,
+                                map: mapt,
+                                mc: mcity,
+                                ms: mstate,
+                                mz: mzcode,
+                                db: dob,
+                                tn: tnumber,
+                                pp: party,
+                                re: rore,
+                                em: email,
+                                si: sign
+
+                              });
+
+
+                              router.post('/resubmit', function(req,res){
+
+                                        console.log("this is happening to you again");
+                                        console.log(lastname);
+
+                                        res.render("aboutme.html", {
+                                          
+                                          rln: lastname,
+                                          rfn: firstname,
+                                          rmn: middlename,
+                                          rcz: citizen, 
+                                          rof: ofage,
+                                          rha: haddress,
+                                          rhap: hapt,
+                                          rhc: hcity,
+                                          rhs: hstate,
+                                          rhz: hzcode,
+                                          rma: maddress,
+                                          rmap: mapt,
+                                          rmc: mcity,
+                                          rms: mstate,
+                                          rmz: mzcode,
+                                          rdb: dob,
+                                          rtn: tnumber,
+                                          rpp: party,
+                                          rre: rore,
+                                          rem: email,
+                                          rsi: sign
+                                          
                                         });
+
+                                      });
+
+                            });
+
+                                    
 
                                           //map to data model
                                         //   var personObj = {
