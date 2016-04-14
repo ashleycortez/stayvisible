@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var fs = require('fs');
 var AWS = require('aws-sdk');
 var multipart = require('connect-multiparty');
+
 // var pdfFillForm = require('pdf-fill-form');
 
 // our db models
@@ -91,7 +92,7 @@ router.get('/registrationcomplete', function(req,res){
 
 router.get('/renderform', function(req,res){
 
-  res.render('renderform.html');
+  res.render('renderPDF.html');
 
 });
 
@@ -107,154 +108,104 @@ router.get('/updatename', function(req,res){
 
 });
 
+    router.post('/submit_form', function(req,res){
 
-          router.get('/edit/:id', function(req,res){
+          var citizenYes = req.body.citizenYes;
+          var citizenNo = req.body.citizenNo;
+          var ofageYes = req.body.ofageYes;
+          var ofageNo = req.body.ofageNo;
+          var lastname = req.body.lastname;
+          var firstname = req.body.firstname;
+          var middlename = req.body.middlename;
+          var haddress = req.body.haddress;
+          var hapt = req.body.hapt;
+          var hcity = req.body.hcity;
+          var hstate = req.body.hstate;
+          var hzcode = req.body.hzcode;
+          var maddress = req.body.maddress;
+          var mapt = req.body.mapt;
+          var mcity = req.body.mcity;
+          var mstate = req.body.mstate;
+          var mzcode = req.body.mzcode;
+          var dob = req.body.dob;
+          var tnumber = req.body.tnumber;
+          var idnumber = req.body.idnumber;
+          var party = req.body.party;
+          var email = req.body.email;
+          var sign = req.body.sign; 
+          //these need to be all made
 
-            var requestedId = req.params.id;
+          console.log("this is happening to you");
+          console.log(req.body.lastname);
 
-            Person.findById(requestedId,function(err,data){
-              if(err){
-                var error = {
-                  status: "ERROR",
-                  message: err
-                };
-                return res.json(err)
-              };
 
-              console.log(data); 
+              res.render("showInfo.html", {
 
-              var viewData = {
-                pageTitle: "Edit " + data.name,
-                person: data
-              };
+                czy: citizenYes,
+                czn: citizenNo,
+                oay: ofageYes,
+                oan: ofageNo,
+                ln: lastname,
+                fn: firstname,
+                mn: middlename,
+                ha: haddress,
+                hap: hapt,
+                hc: hcity,
+                hs: hstate,
+                hz: hzcode,
+                ma: maddress,
+                map: mapt,
+                mc: mcity,
+                ms: mstate,
+                mz: mzcode,
+                db: dob,
+                tn: tnumber,
+                id: idnumber,
+                pp: party,
+                em: email,
+                si: sign
 
-              res.render('edit-form.html',viewData);
+              });
+
+
+              router.post('/resubmit', function(req,res){
+
+                        console.log("this is happening to you again");
+                        console.log(lastname);
+
+                        res.render("aboutme.html", {
+                          
+                          rln: lastname,
+                          rfn: firstname,
+                          rmn: middlename,
+                          rczy: citizenYes,
+                          rczn: citizenNo,
+                          roay: ofageYes,
+                          roan: ofageNo,
+                          rha: haddress,
+                          rhap: hapt,
+                          rhc: hcity,
+                          rhs: hstate,
+                          rhz: hzcode,
+                          rma: maddress,
+                          rmap: mapt,
+                          rmc: mcity,
+                          rms: mstate,
+                          rmz: mzcode,
+                          rdb: dob,
+                          rtn: tnumber,
+                          rid: idnumber,
+                          rpp: party,
+                          rem: email,
+                          rsi: sign
+                          
+                        });
+
+                      });
 
             });
 
-          });
 
-
-
-                  router.get('/edit/:id', function(req,res){
-
-                    var requestedId = req.params.id;
-
-                    Person.findById(requestedId,function(err,data){
-                      if(err){
-                        var error = {
-                          status: "ERROR",
-                          message: err
-                        }
-                        return res.json(err)
-                      }
-
-                      var viewData = {
-                        status: "OK",
-                        person: data
-                      };
-
-                      return res.render('edit-form.html',viewData);
-                    });
-
-                  });
-
-
-
-
-                    router.post('/submit_form', function(req,res){
-
-                          var lastname = req.body.lastname;
-                          var firstname = req.body.firstname;
-                          var middlename = req.body.middlename;
-                          var citizen = req.body.citizen;
-                          var ofage = req.body.ofage;
-                          var lastname = req.body.lastname;
-                          var firstname = req.body.firstname;
-                          var middlename = req.body.middlename;
-                          var haddress = req.body.haddress;
-                          var hapt = req.body.hapt;
-                          var hcity = req.body.hcity;
-                          var hstate = req.body.hstate;
-                          var hzcode = req.body.hzcode;
-                          var maddress = req.body.maddress;
-                          var mapt = req.body.mapt;
-                          var mcity = req.body.mcity;
-                          var mstate = req.body.mstate;
-                          var mzcode = req.body.mzcode;
-                          var dob = req.body.dob;
-                          var tnumber = req.body.tnumber;
-                          var party = req.body.party;
-                          var rore = req.body.rore;
-                          var email = req.body.email;
-                          var sign = req.body.sign; 
-                          //these need to be all made
-
-                          console.log("this is happening to you");
-                          console.log(req.body.lastname);
-
-
-                              res.render("renderform.html", {
-
-                                ln: lastname,
-                                fn: firstname,
-                                mn: middlename,
-                                cz: citizen, 
-                                of: ofage,
-                                ha: haddress,
-                                hap: hapt,
-                                hc: hcity,
-                                hs: hstate,
-                                hz: hzcode,
-                                ma: maddress,
-                                map: mapt,
-                                mc: mcity,
-                                ms: mstate,
-                                mz: mzcode,
-                                db: dob,
-                                tn: tnumber,
-                                pp: party,
-                                re: rore,
-                                em: email,
-                                si: sign
-
-                              });
-
-
-                              router.post('/resubmit', function(req,res){
-
-                                        console.log("this is happening to you again");
-                                        console.log(lastname);
-
-                                        res.render("aboutme.html", {
-                                          
-                                          rln: lastname,
-                                          rfn: firstname,
-                                          rmn: middlename,
-                                          rcz: citizen, 
-                                          rof: ofage,
-                                          rha: haddress,
-                                          rhap: hapt,
-                                          rhc: hcity,
-                                          rhs: hstate,
-                                          rhz: hzcode,
-                                          rma: maddress,
-                                          rmap: mapt,
-                                          rmc: mcity,
-                                          rms: mstate,
-                                          rmz: mzcode,
-                                          rdb: dob,
-                                          rtn: tnumber,
-                                          rpp: party,
-                                          rre: rore,
-                                          rem: email,
-                                          rsi: sign
-                                          
-                                        });
-
-                                      });
-
-                            });
 
                                     
 
@@ -286,8 +237,7 @@ router.get('/updatename', function(req,res){
                                         //     //   person: data
                                         //     // }
 
-                                        //     //map data from form to PDF
-                                        //     //PDF form library thingy
+
 
                                         //     //send PDF back to browser
                                         //     //need to send back as a file stream

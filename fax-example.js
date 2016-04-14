@@ -1,7 +1,7 @@
 var Phaxio = require('phaxio');
 
 // fill this in with your secret and key
-var cred = require './secrets.js';
+var cred = require('./secrets.js');
 var phaxio = new Phaxio(cred.faxclientID, cred.faxclientSecret);
 
 
@@ -23,9 +23,7 @@ function sendFax(number, message) {
 	});
 }
 
-sendFax('2129981898', 'hello! this is a test');
+sendFax(faxNum, 'hello! this is a test');
 //sendfax
 
-function findCounty(number){
-	if 
-}
+sendFax()

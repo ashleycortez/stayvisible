@@ -1,4 +1,46 @@
-// // CUSTOM JS FILE //
+var counties;
+
+$.getJSON("nycounties.json", getCountyContacts);
+console.log("hello");
+function getCountyContacts(data){
+	counties = data.nyCounties;
+	for (var i = 0; i<counties.length; i++){
+		var name = counties[i].countyName;
+		var fax = counties[i].fax;
+		var email = counties[i].email;
+		var p = "<li id='"+[i]+"''>" + name + "</li>";
+		$ ("#countyList").append(p);
+	}
+	function addListeners(){
+		var l = document.getElementsByTagName('li');
+		for (var i=0; i< l.length; i++){
+			l[i].addEventListener('mouseover', function(event){
+				var currentElement = parseInt(event.target.id);
+				addCountyInformation(currentElement);
+			});			
+		};
+
+};
+	addListeners();
+}
+
+function addCountyInformation(element){
+	//console.log(counties[element].fax);
+	document.getElementById("fax").innerHTML = counties[element].fax;
+
+}
+
+
+$("#faxit").click(function(){
+	var faxNum = document.getElementById("fax").innerHTML;
+	console.log(faxNum);
+	sendFax(faxNum, 'hello! this is a test');
+});
+
+
+
+
+
 
 // function init() {
 //   renderPeeps();
@@ -34,3 +76,5 @@
 // }
 
 // window.addEventListener('load', init())
+
+
