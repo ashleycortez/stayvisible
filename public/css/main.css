@@ -60,6 +60,9 @@ body {
     background-color: #f8f8ff;
 }
 
+#faxywaxy{
+    display:none;
+}
 .wrapper {
     width: 90%;
     margin: 0 auto;

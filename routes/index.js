@@ -4,6 +4,8 @@ var mongoose = require('mongoose');
 var fs = require('fs');
 var AWS = require('aws-sdk');
 var multipart = require('connect-multiparty');
+var Phaxio = require('phaxio');
+var fillPdf = require("fill-pdf");
 
 // var pdfFillForm = require('pdf-fill-form');
 
@@ -12,6 +14,10 @@ var Person = require("../models/person.js");
 
 //pdf model
 var Voter = require("../models/voterInfo.js");
+
+
+var cred = require ('../secrets.js');
+var phaxio = new Phaxio(cred.faxclientID, cred.faxclientSecret);
 
 //don't need this cause I'm not using these models to update the database
 //var Updateaddress = require("../models/updateaddress.js");
@@ -92,7 +98,21 @@ router.get('/registrationcomplete', function(req,res){
 
 router.get('/renderform', function(req,res){
 
-  res.render('renderPDF.html');
+  res.render('renderPdf.html');
+
+});
+
+router.post('/renderform', function(req,res){
+  var formData = { FieldName: 'Text to put into form field' };
+  var pdfTemplatePath = "./template.pdf";
+
+  fillPdf.generatePdf(formData,pdfTemplatePath, function(err, output) {
+    if ( !err ) {
+  
+    }
+  });
+
+  res.render('renderPdf.html');
 
 });
 
@@ -107,6 +127,40 @@ router.get('/updatename', function(req,res){
   res.render('updatename.html');
 
 });
+
+router.post('/sendfax', function(req,res){
+
+console.log("HEY DAVID")
+        var pdfFile = './template.pdf';
+        // fs.readFile(pdfFile, function(err,data){
+
+             console.log(req.body.faxywaxy);
+        
+        var faxInfo = {
+            to: req.body.faxywaxy,
+            filenames: pdfFile
+        };
+
+        phaxio.sendFax(faxInfo, function(err, data){
+          if (err) {
+            // there was an error! it didn't go through
+            console.log(err);
+          } else {
+            //it worked!!
+            console.log(data);
+          }
+        });
+
+      // })
+
+     
+  
+
+    res.render('registrationcomplete.html');
+
+});
+
+
 
     router.post('/submit_form', function(req,res){
 

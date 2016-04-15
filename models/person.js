@@ -9,8 +9,8 @@ var personSchema = new Schema ({
   middlename: String,
   tnumber: String,
   email: String,
-  zcode: String
-  //dateAdded : { type: Date, default: Date.now },
+  zcode: String,
+  dateAdded : { type: Date, default: Date.now },
 })
 
 // export 'Person' model so we can interact with it in other files

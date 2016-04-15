@@ -14,7 +14,7 @@ function getCountyContacts(data){
 	function addListeners(){
 		var l = document.getElementsByTagName('li');
 		for (var i=0; i< l.length; i++){
-			l[i].addEventListener('mouseover', function(event){
+			l[i].addEventListener('click', function(event){
 				var currentElement = parseInt(event.target.id);
 				addCountyInformation(currentElement);
 			});			
@@ -33,8 +33,9 @@ function addCountyInformation(element){
 
 $("#faxit").click(function(){
 	var faxNum = document.getElementById("fax").innerHTML;
+	$('#faxywaxy').val(faxNum);
 	console.log(faxNum);
-	sendFax(faxNum, 'hello! this is a test');
+	
 });
 
 
