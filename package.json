@@ -21,6 +21,7 @@
     "morgan": "~1.6.1",
     "node-env-file": "^0.1.7",
     "pdffiller": "^0.1.2",
+    "phaxio": "^0.1.0",
     "requirejs": "^2.2.0",
     "serve-favicon": "~2.3.0"
   }

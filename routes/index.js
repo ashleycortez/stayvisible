@@ -94,26 +94,6 @@ router.get('/registrationcomplete', function(req,res){
 
 });
 
-
-
-router.post('/renderform', function(req,res){
-  var sourcePDF = "Registration.pdf";
-  var reformedPDF = "filledout.pdf";
-  var formData = { '1-2': 'Narda' };
-
-
-  pdfFiller.fillForm(sourcePDF, reformedPDF, formData, function(err) {
-
-    if ( !err ) {
-      console.log("wewew");
-      res.render('renderPdf.html');
-    } else {
-      console.log(err);
-    }
-  });
-
-});
-
   
 
 // });
@@ -264,6 +244,42 @@ router.post('/sendfax', function(req,res){
 
               countyFaxNum = hcounty;
 
+                  router.post('/renderform', function(req,res){ 
+                  var sourcePDF = "Registration.pdf";
+                  var destinationPDF = "Test.pdf"; 
+
+                  var pdfData = {
+                    "topmostSubform[0].Page4[0].TextField1[2]": ln,
+                    "topmostSubform[0].Page4[0].TextField1[1]": fn,
+                    "topmostSubform[0].Page4[0].TextField1[0]": mn,
+                    "topmostSubform[0].Page4[0].TextField2[0]": ha,
+                    "topmostSubform[0].Page4[0].TextField3[0]": hapt,
+                    "topmostSubform[0].Page4[0].TextField4[0]": hc,
+                    "topmostSubform[0].Page4[0].TextField5[0]": hs,
+                    "topmostSubform[0].Page4[0].TextField6[0]": hz,
+                    "topmostSubform[0].Page4[0].DateTimeField1[0]": dob,
+                    "topmostSubform[0].Page4[0].NumericField1[0]": tn,
+                    "topmostSubform[0].Page4[0].TextField11[0]": id,
+                    "E1": czy,
+                    "E2": czn,
+                    "F1": oay,
+                    "F2": oan
+                  };
+
+                  pdfFiller.fillForm(sourcePDF, destinationPDF, pdfData, function(err){
+                    if (!err){
+                      res.send(destinationPDF);
+                    }
+                  });
+
+
+
+                  //console.log(countyFaxNum);
+                  // res.render('renderPdf.html', {hcfn: countyFaxNum});
+
+
+                });
+
             });
 
                 router.get('/renderform', function(req,res){
@@ -271,13 +287,7 @@ router.post('/sendfax', function(req,res){
 
                 });
 
-                router.post('/renderform', function(req,res){
 
-                  
-                  //console.log(countyFaxNum);
-                  res.render('renderPdf.html', {hcfn: countyFaxNum});
-
-                });
 
 
 
