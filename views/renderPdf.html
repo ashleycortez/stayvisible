@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -15,6 +15,8 @@
     <!-- Custom CSS inside CSS folder -->
     <link rel="stylesheet" href="/css/main.css">
 
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,6 +25,54 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+
+
+  <script> 
+
+     console.log('{{hcfn}}');
+
+     $.getJSON("nycounties.json", getCountyContacts);
+
+      var counties;
+
+      
+
+  function getCountyContacts(data){
+
+    counties = data.nyCounties;
+    
+    for (var i = 0; i<counties.length; i++){
+
+      if('{{hcfn}}' == counties[i].countyName) {
+
+        console.log('Match!!');
+
+      document.getElementById("fax").innerHTML = counties[i].fax;
+
+    // var fax = counties[i].fax;
+  };
+};
+
+};
+
+$("#faxit").click(function(){
+   var faxNum = document.getElementById("fax").innerHTML;
+  $('#faxywaxy').val(faxNum);
+  console.log(faxNum);
+  
+});
+
+
+
+// for (var i = 0; i<counties.length; i++){
+//       if ('{{hcfn}}' == counties[i].countyName){
+//         document.getElementById("fax").innerHTML = counties[i].fax;
+//       }
+       
+
+  </script>
+
+
   <body>
 
     <div id="headofrender">
@@ -34,10 +84,13 @@
       <div id="pdfInfo"><p>this is where the info will show up</p>
 
         {{ln}}, {{fn}} {{mn}}<br>
+        
 
 
       </div><!-- Changed variable on Sunday with Justin-->
     </div>
+
+    <div id='faxCounty'> {{hcfn}} </div>
 <!--       <p>hey this is where the rendered form will be</p> -->
 
 
@@ -50,6 +103,7 @@
   </div>
   <div class="col-sm-6">
     <h3>Fax Info</h3> 
+
     <p id="fax"></p>
   </div>
 
@@ -57,10 +111,17 @@
 <!-- if submit is hit, then these buttons diplay below -->
       <div>
         <div class="row">
+
+
+
           <form action="/sendfax" method="POST">
             <input id="faxywaxy" name="faxywaxy"></input>
+
               <button id="faxit" class="btn btn-default">Fax It</button>
         </form>
+
+
+
         <form action="/sendemail" method="POST">
           <button type="submit" id="emailit" class="btn btn-default">Email It</button>
        </div>
@@ -74,7 +135,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 
     <!-- CUSTOM JS -->
-    <script src="/js/main.js"></script>
+
+    <script src="/js/main.js">    </script>
+
 
     <!-- JQuery validate -->
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>

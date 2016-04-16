@@ -1,7 +1,9 @@
-var counties;
+var counties;  //check
 
-$.getJSON("nycounties.json", getCountyContacts);
+$.getJSON("nycounties.json", getCountyContacts); // check
+
 console.log("hello");
+
 function getCountyContacts(data){
 	counties = data.nyCounties;
 	for (var i = 0; i<counties.length; i++){
@@ -37,6 +39,7 @@ $("#faxit").click(function(){
 	console.log(faxNum);
 	
 });
+
 
 
 

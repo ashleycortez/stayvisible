@@ -5,7 +5,9 @@ var fs = require('fs');
 var AWS = require('aws-sdk');
 var multipart = require('connect-multiparty');
 var Phaxio = require('phaxio');
-var fillPdf = require("fill-pdf");
+//var fillPdf = require("fill-pdf");
+var pdfFiller = require('pdffiller');
+
 
 // var pdfFillForm = require('pdf-fill-form');
 
@@ -39,6 +41,7 @@ var s3 = new AWS.S3();
 
 var multipartMiddleware = multipart();
 
+var countyFaxNum;
 
 //pdf-fill-form
 
@@ -96,25 +99,28 @@ router.get('/registrationcomplete', function(req,res){
 
 });
 
-router.get('/renderform', function(req,res){
 
-  res.render('renderPdf.html');
 
-});
+// router.post('/renderform', function(req,res){
+//   var sourcePDF = "../../routes/federal-voter.pdf";
+//   var reformedPDF = "filledout.pdf";
+//   var formData = { 'topmostSubform[0].Page4[0].TextField1[0]': 'Narda' };
 
-router.post('/renderform', function(req,res){
-  var formData = { FieldName: 'Text to put into form field' };
-  var pdfTemplatePath = "./template.pdf";
 
-  fillPdf.generatePdf(formData,pdfTemplatePath, function(err, output) {
-    if ( !err ) {
+//   fillPdf.generatePdf(formData,pdfTemplatePath, function(err, output) {
+
+//     if ( !err ) {
+//       console.log("wewew");
+//       // res.send(output);
+//       res.render('renderPdf.html');
+//     } else {
+//       console.log(err);
+//     }
+//   });
+
   
-    }
-  });
 
-  res.render('renderPdf.html');
-
-});
+// });
 
 router.get('/updateaddress', function(req,res){
 
@@ -128,13 +134,13 @@ router.get('/updatename', function(req,res){
 
 });
 
-router.post('/sendfax', function(req,res){
+  router.post('/sendfax', function(req,res){
 
-console.log("HEY DAVID")
-        var pdfFile = './template.pdf';
+        console.log("HEY DAVID")
+        var pdfFile = './GovLab-CoverLetter.pdf';
         // fs.readFile(pdfFile, function(err,data){
 
-             console.log(req.body.faxywaxy);
+             //console.log(req.body.faxywaxy);
         
         var faxInfo = {
             to: req.body.faxywaxy,
@@ -176,6 +182,7 @@ console.log("HEY DAVID")
           var hcity = req.body.hcity;
           var hstate = req.body.hstate;
           var hzcode = req.body.hzcode;
+          var hcounty = req.body.hcounty;
           var maddress = req.body.maddress;
           var mapt = req.body.mapt;
           var mcity = req.body.mcity;
@@ -207,6 +214,7 @@ console.log("HEY DAVID")
                 hc: hcity,
                 hs: hstate,
                 hz: hzcode,
+                hco: hcounty,
                 ma: maddress,
                 map: mapt,
                 mc: mcity,
@@ -257,7 +265,23 @@ console.log("HEY DAVID")
 
                       });
 
+
+              countyFaxNum = hcounty;
+
             });
+
+                router.get('/renderform', function(req,res){
+                  
+
+                });
+
+                router.post('/renderform', function(req,res){
+
+                  
+                  //console.log(countyFaxNum);
+                  res.render('renderPdf.html', {hcfn: countyFaxNum});
+
+                });
 
 
 

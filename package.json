@@ -13,12 +13,14 @@
     "debug": "~2.2.0",
     "ejs": "*",
     "express": "~4.13.1",
+    "geocoder": "^0.2.2",
     "google-auth-library": "^0.9.7",
     "googleapis": "^3.1.0",
     "hogan-express": "^0.5.2",
     "mongoose": "^4.1.10",
     "morgan": "~1.6.1",
     "node-env-file": "^0.1.7",
+    "pdffiller": "^0.1.2",
     "requirejs": "^2.2.0",
     "serve-favicon": "~2.3.0"
   }
