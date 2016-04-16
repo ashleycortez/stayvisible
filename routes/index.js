@@ -249,21 +249,21 @@ router.post('/sendfax', function(req,res){
                   var destinationPDF = "Test.pdf"; 
 
                   var pdfData = {
-                    "topmostSubform[0].Page4[0].TextField1[2]": ln,
-                    "topmostSubform[0].Page4[0].TextField1[1]": fn,
-                    "topmostSubform[0].Page4[0].TextField1[0]": mn,
-                    "topmostSubform[0].Page4[0].TextField2[0]": ha,
+                    "topmostSubform[0].Page4[0].TextField1[2]": lastname,
+                    "topmostSubform[0].Page4[0].TextField1[1]": firstname,
+                    "topmostSubform[0].Page4[0].TextField1[0]": middlename,
+                    "topmostSubform[0].Page4[0].TextField2[0]": haddress,
                     "topmostSubform[0].Page4[0].TextField3[0]": hapt,
-                    "topmostSubform[0].Page4[0].TextField4[0]": hc,
-                    "topmostSubform[0].Page4[0].TextField5[0]": hs,
-                    "topmostSubform[0].Page4[0].TextField6[0]": hz,
+                    "topmostSubform[0].Page4[0].TextField4[0]": hcity,
+                    "topmostSubform[0].Page4[0].TextField5[0]": hstate,
+                    "topmostSubform[0].Page4[0].TextField6[0]": hzcode,
                     "topmostSubform[0].Page4[0].DateTimeField1[0]": dob,
-                    "topmostSubform[0].Page4[0].NumericField1[0]": tn,
-                    "topmostSubform[0].Page4[0].TextField11[0]": id,
-                    "E1": czy,
-                    "E2": czn,
-                    "F1": oay,
-                    "F2": oan
+                    "topmostSubform[0].Page4[0].NumericField1[0]": tnumber,
+                    "topmostSubform[0].Page4[0].TextField11[0]": idnumber,
+                    "E1": citizenYes,
+                    "E2": citizenNo,
+                    "F1": ofageYes,
+                    "F2": ofageNo
                   };
 
                   pdfFiller.fillForm(sourcePDF, destinationPDF, pdfData, function(err){
