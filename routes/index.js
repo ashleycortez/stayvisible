@@ -18,8 +18,8 @@ var Person = require("../models/person.js");
 var Voter = require("../models/voterInfo.js");
 
 
-var cred = require ('../secrets.js');
-var phaxio = new Phaxio(cred.faxclientID, cred.faxclientSecret);
+// var cred = require ('../secrets.js');
+// var phaxio = new Phaxio(cred.faxclientID, cred.faxclientSecret);
 
 //don't need this cause I'm not using these models to update the database
 //var Updateaddress = require("../models/updateaddress.js");
