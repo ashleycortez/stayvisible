@@ -14,7 +14,7 @@ var pdfFiller = require('pdffiller');
 // our db models
 var Person = require("../models/person.js");
 
-//pdf model
+//pdf model, maybe?
 var Voter = require("../models/voterInfo.js");
 
 
@@ -28,24 +28,19 @@ var phaxio = new Phaxio(cred.faxclientID, cred.faxclientSecret);
 
 // S3 File dependencies
 
-var awsBucketName = process.env.AWS_BUCKET_NAME;
-var s3Path = process.env.AWS_S3_PATH; // TODO - we shouldn't hard code the path, but get a temp URL dynamically using aws-sdk's getObject
-AWS.config.update({
-  accessKeyId: process.env.AWS_ACCESS_KEY,
-  secretAccessKey: process.env.AWS_SECRET_KEY
-});
-var s3 = new AWS.S3();
+// var awsBucketName = process.env.AWS_BUCKET_NAME;
+// var s3Path = process.env.AWS_S3_PATH; // TODO - we shouldn't hard code the path, but get a temp URL dynamically using aws-sdk's getObject
+// AWS.config.update({
+//   accessKeyId: process.env.AWS_ACCESS_KEY,
+//   secretAccessKey: process.env.AWS_SECRET_KEY
+// });
+// var s3 = new AWS.S3();
 
 // file processing dependencies
-
 
 var multipartMiddleware = multipart();
 
 var countyFaxNum;
-
-//pdf-fill-form
-
-
 
 
 /**
@@ -58,10 +53,10 @@ router.get('/', function(req, res) {
 
   console.log('home page requested!');
 
-  var jsonData = {
-    'name': 'voter-info',
-    'api-status':'OK'
-  }
+  // var jsonData = {
+  //   'name': 'voter-info',
+  //   'api-status':'OK'
+  // }
 
   // respond with json data
   //res.json(jsonData)
@@ -81,17 +76,17 @@ router.get('/aboutme', function(req,res){
 
 });
 
-router.get('/new-registration', function(req,res){
+// router.get('/new-registration', function(req,res){
 
-  res.render('new-registration.html');
+//   res.render('new-registration.html');
 
-});
+// });
 
-router.get('/edit-form', function(req,res){
+// router.get('/edit-form', function(req,res){
 
-  res.render('edit-form.html');
+//   res.render('edit-form.html');
 
-});
+// });
 
 router.get('/registrationcomplete', function(req,res){
 
@@ -101,40 +96,41 @@ router.get('/registrationcomplete', function(req,res){
 
 
 
-// router.post('/renderform', function(req,res){
-//   var sourcePDF = "../../routes/federal-voter.pdf";
-//   var reformedPDF = "filledout.pdf";
-//   var formData = { 'topmostSubform[0].Page4[0].TextField1[0]': 'Narda' };
+router.post('/renderform', function(req,res){
+  var sourcePDF = "Registration.pdf";
+  var reformedPDF = "filledout.pdf";
+  var formData = { '1-2': 'Narda' };
 
 
-//   fillPdf.generatePdf(formData,pdfTemplatePath, function(err, output) {
+  pdfFiller.fillForm(sourcePDF, reformedPDF, formData, function(err) {
 
-//     if ( !err ) {
-//       console.log("wewew");
-//       // res.send(output);
-//       res.render('renderPdf.html');
-//     } else {
-//       console.log(err);
-//     }
-//   });
+    if ( !err ) {
+      console.log("wewew");
+      res.render('renderPdf.html');
+    } else {
+      console.log(err);
+    }
+  });
+
+});
 
   
 
 // });
 
-router.get('/updateaddress', function(req,res){
+// router.get('/updateaddress', function(req,res){
 
-  res.render('updateaddress.html');
+//   res.render('updateaddress.html');
 
-});
+// });
 
-router.get('/updatename', function(req,res){
+// router.get('/updatename', function(req,res){
 
-  res.render('updatename.html');
+//   res.render('updatename.html');
 
-});
+// });
 
-  router.post('/sendfax', function(req,res){
+router.post('/sendfax', function(req,res){
 
         console.log("HEY DAVID")
         var pdfFile = './GovLab-CoverLetter.pdf';
@@ -282,6 +278,8 @@ router.get('/updatename', function(req,res){
                   res.render('renderPdf.html', {hcfn: countyFaxNum});
 
                 });
+
+
 
 
 
