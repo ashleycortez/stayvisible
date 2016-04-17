@@ -245,7 +245,7 @@ router.post('/sendfax', function(req,res){
               countyFaxNum = hcounty;
 
                   router.post('/renderform', function(req,res){ 
-                  var sourcePDF = "Registration.pdf";
+                  var sourcePDF = "registration.pdf";
                   var destinationPDF = "Test.pdf"; 
 
                   var pdfData = {
