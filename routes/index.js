@@ -247,6 +247,7 @@ router.post('/sendfax', function(req,res){
                   router.post('/renderform', function(req,res){ 
                   var sourcePDF = "registration.pdf";
                   var destinationPDF = "./public/forms/newform.pdf"; 
+                  var temporaryPDF = "newform.pdf"
 
                   var pdfData = {
                     "topmostSubform[0].Page4[0].TextField1[2]": lastname,
@@ -272,7 +273,7 @@ router.post('/sendfax', function(req,res){
                       //save the pdf so that it can be served, render the page passing the name of the pdf to the new page
                       //and the new library will handle the new pdf from there
 
-                      res.render('renderPdf.html', {hcfn: countyFaxNum, destinationPDF: destinationPDF});
+                      res.render('renderPdf.html', {hcfn: countyFaxNum, destinationPDF: temporaryPDF});
                     }
                   });
 
