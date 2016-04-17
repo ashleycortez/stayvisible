@@ -268,7 +268,7 @@ router.post('/sendfax', function(req,res){
 
                   pdfFiller.fillForm(sourcePDF, destinationPDF, pdfData, function(err){
                     if (!err){
-                      res.send(destinationPDF);
+                      res.sendfile(destinationPDF);
                     }
                   });
 
