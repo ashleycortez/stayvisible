@@ -246,7 +246,7 @@ router.post('/sendfax', function(req,res){
 
                   router.post('/renderform', function(req,res){ 
                   var sourcePDF = "registration.pdf";
-                  var destinationPDF = "../public/forms/newform.pdf"; 
+                  var destinationPDF = "./public/forms/newform.pdf"; 
 
                   var pdfData = {
                     "topmostSubform[0].Page4[0].TextField1[2]": lastname,
