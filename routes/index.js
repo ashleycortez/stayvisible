@@ -123,7 +123,7 @@ router.post('/sendfax', function(req,res){
             filenames: pdfFile
         };
 
-        phaxio.sendFax(faxInfo, function(err, data){
+        Phaxio.sendFax(faxInfo, function(err, data){
           if (err) {
             // there was an error! it didn't go through
             console.log(err);
