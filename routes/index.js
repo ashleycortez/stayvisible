@@ -258,7 +258,9 @@ router.post('/sendfax', function(req,res){
                   var random = Math.floor(Math.random()*100000);
                   var sourcePDF = "template-new.pdf";
                   var temporaryPDF = "newform" + random + ".pdf"
-                  var destinationPDF = "./public/forms/" + temporaryPDF; 
+                  var destinationPDF = "./public/forms/" + temporaryPDF;
+
+                  console.log(temporaryPDF); 
 
 
 
