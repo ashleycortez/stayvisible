@@ -255,9 +255,12 @@ router.post('/sendfax', function(req,res){
               countyFaxNum = hcounty;
 
                   router.post('/renderform', function(req,res){ 
+                  var random = Math.floor(Math.random()*100000);
                   var sourcePDF = "template-new.pdf";
-                  var destinationPDF = "./public/forms/newform.pdf"; 
-                  var temporaryPDF = "newform.pdf"
+                  var temporaryPDF = "newform" + random + ".pdf"
+                  var destinationPDF = "./public/forms/" + temporaryPDF; 
+
+
 
                   var pdfData = {
                     "topmostSubform[0].Page4[0].TextField1[2]": lastname,
