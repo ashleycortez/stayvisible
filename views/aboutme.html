@@ -25,21 +25,121 @@
     <div id="progressBar" data-0="width: 0%" data-end="width: 100%"></div>
     <div id="offset">10</div>
 
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Stay Visible!</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/normalize.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100|Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="main.css">
+    <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+  </head>
+
+<!--[body of html]><!--> 
+<body>
+
+<!--[fixed position top bars]><!--> 
+    <div id="progressBar" data-0="width: 0%" data-end="width: 100%"></div>
+    <div id="offset">10</div>
+
 <!--[header]><!--> 
     <header data-0="opacity: 1" data-400="opacity: 0"> 
+      <div class="wrap">
+        <h1>EVERY VOTE</h1>
+        <p>a user friendly, multi-platform, </br>state universal voter registration tool</p>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- <div class="mainWrap">
+      <h1>I want to</h1>
+      <ul>
+        <li><a class="active" href="#home">register to vote</a></li>
+        <li><a href="#news">update my name</a></li>
+        <li><a href="#contact">update my address</a></li>
+        <li><a href="#about">request an absentee ballot</a></li>
+      </ul>
+ -->
+      </div>
+
+      <form method="POST" action="/submit_form" class="mainWrap">
+
+      <div class="radio">
+        <h2>Are you a <br />US Citizen?</h2>
+        <p>some information about being a US citizen</p>
+        <input type="radio" id="citizenYes" name="citizen" value="y" required>Yes<br>
+        <input type="radio" id="citizenNo" name="citizen" value="n">No 
+      </div>
+
+      <div class="radio">
+        <h2>Are you <br />18 Years old?</h2>
+        <p>You don't have to be now; but you have to be by November 8, 2016 in order to vote in the presidential election</p>
+        <input type="radio" id="ofageYes" name="ofage" value="y" required>Yes<br>
+        <input type="radio" id="ofageNo" name="ofage" value="n">No
+      </div> 
+
+      <h2>1 personal information</h2>
+      <input placeholder="First Name" type="text" class="fname" name="firstname" required/>
+      <input placeholder="Middle Name" type="text" class="mname" name="middlename"/>
+      <input placeholder="Last Name" type="text" class="lname" name="lastname" required/>
+      <input placeholder="Date of Birth xx/xx/xx" type="text" class="dob" name="dob" required />
+
+
+      <h2>2 address information</h2>
+      <input placeholder="Home Address" type="text" class="fname" name="haddress" required/>
+      <input placeholder="Apt, Lot, Suite" type="text" class="mname" name="hapt" />
+      <input placeholder="City" type="text" class="lname" name="hcity" required/>
+      <input placeholder="State" type="text" class="fname" name="hstate" required/>
+      <input placeholder="Zip Code" type="text" class="mname" name="hzipcode" required/>
+
+      <h2>3 contact information</h2>
+      <input placeholder="Telephone Number" type="text" class="fname" name="tnumber" />
+      <input placeholder="Email" type="text" class="mname" name="email"/>
+
+      <h2>4 sign, seal, deliver (almost)</h2>
+      <input placeholder="First Name" type="text" class="fname" name="fsig" required/>
+      <input placeholder="Middle Name" type="text" class="mname" name="msig" required/>
+      <input placeholder="Last Name" type="text" class="lname" name="lsig" required/>
+      <input placeholder="Today's Date xx/xx/xxxx" type="text" class="dob" name="tday" required/>
+
+      <h2>go ahead and</h2>
+      <input placeholder="Choose Your County" type="text" class="fname" name="hcounty" />
+      <input placeholder="xxxxxx1234" type="text" class="mname" />
+      <button class="bigBtn"type="submit" id="formSubmit" class="btn btn-default"> Submit </button> 
+
+
+
+
+      </form>
+    </main>
+
+<!--[header]><!--> 
+<!--     <header data-0="opacity: 1" data-400="opacity: 0"> 
       <div class="wrapper clearfix">
         <h1 class="title">STAY VISIBLE</h1>
         <p>a user friendly, multi-platform, universal </br>voter registration tool!</p>
       </div>
-    </header>
+    </header> -->
 
 <!--[main-content]><!--> 
-    <main>
+<!--     <main> -->
 
 
 <!--[whole form]><!--> 
 
-      <form method="POST" action="/submit_form" id="myForm">
+<!--       <form method="POST" action="/submit_form" id="myForm"> -->
 
 <!-- 
         <div id="profiles" data-bottom-top="background-position: 50% 0%" data-top-bottom="background-position: 50% -20%">
@@ -67,7 +167,7 @@
 
 
 <!--[name]-->  
-
+<!-- 
         <div class="container">
             <div class="row">
               <div class="col-sm-4"></div><div class="col-sm-4"><h2>My name is:</h2></div><div class="col-sm-4"></div>
@@ -88,7 +188,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
 <!--[country]><!-->
 
@@ -98,7 +198,7 @@
 
 <!--[address]><!--> 
 
-        <div class="container" id="home-address">
+<!--         <div class="container" id="home-address">
           <div class="form-group">
             <label for="haddress">Address</label>
             <input type="text" class="form-control" id="haddress" placeholder="Required" name="haddress" required>
@@ -124,7 +224,7 @@
             <label for="hcounty">County</label>
             <input type="text" class="form-control" id="hcounty" placeholder="Required" name="hcounty" required>
         </div>
-
+ -->
 
 <!--[Personal Info]><!--> 
 <!-- 
@@ -171,14 +271,14 @@
 
 <!--[Sending]><!-->    
 
-        <div class="container" id="send">
+<!--         <div class="container" id="send">
           <div class="form-group"> </div>  
-        </div> 
-            <button type="submit" id="formSubmit" class="btn btn-default"> Submit </button> 
-
+        </div>  -->
+            
+<!-- 
     </form>
 
-  </main>
+  </main> -->
 <!-- /main -->
 
 

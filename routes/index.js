@@ -14,10 +14,7 @@ var pdfFiller = require('pdffiller');
 // our db models
 var Person = require("../models/person.js");
 
-//pdf model, maybe?
-var Voter = require("../models/voterInfo.js");
-
-
+//bringing in phaxio
 var phaxio = new Phaxio(process.env.faxclientID, process.env.faxclientSecret);
 
 
@@ -170,7 +167,10 @@ router.post('/sendfax', function(req,res){
           var idnumber = req.body.idnumber;
           var party = req.body.party;
           var email = req.body.email;
-          var sign = req.body.sign; 
+          var sigf = req.body.sigf;
+          var sigm = req.body.sigm;
+          var sigl = req.body.sigl;
+          var tday = req.body.tday;
           //these need to be all made
 
           console.log("this is happening to you");
@@ -202,7 +202,11 @@ router.post('/sendfax', function(req,res){
                 id: idnumber,
                 pp: party,
                 em: email,
-                si: sign
+                sif: sigf,
+                sim: sigm,
+                sil: sigl,
+                td: tday
+
 
               });
 
@@ -226,6 +230,7 @@ router.post('/sendfax', function(req,res){
                           rhc: hcity,
                           rhs: hstate,
                           rhz: hzcode,
+                          rhco: hcounty,
                           rma: maddress,
                           rmap: mapt,
                           rmc: mcity,
@@ -236,7 +241,11 @@ router.post('/sendfax', function(req,res){
                           rid: idnumber,
                           rpp: party,
                           rem: email,
-                          rsi: sign
+                          rsif: sigf,
+                          rsim: sigm,
+                          rsil: sigl,
+                          rtd: tday
+
                           
                         });
 
