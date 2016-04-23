@@ -2,22 +2,22 @@
 
 @font-face {
   font-family: 'Avenir-Next-Condensed';
-  src: url('../fonts/Avenir-Next-Condensed.ttc');
+  src: url('/fonts/Avenir-Next-Condensed.ttc');
 }
 
 @font-face {
   font-family: 'Avenir-Next';
-  src: url('../fonts/Avenir-Next.ttc');
+  src: url('/fonts/Avenir-Next.ttc');
 }
 
 @font-face {
   font-family: 'National-Light';
-  src: url('../fonts/National-Light.otf');
+  src: url('/fonts/National-Light.otf');
 }
 
 @font-face {
   font-family: 'National-Regular';
-  src: url('../fonts/National-Regular.otf');
+  src: url('/fonts/National-Regular.otf');
 }
 
 * {
