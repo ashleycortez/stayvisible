@@ -446,45 +446,6 @@ router.post('/api/create/image', multipartMiddleware, function(req,res){
   console.log('the incoming data >> ' + JSON.stringify(req.body));
   console.log('the incoming image file >> ' + JSON.stringify(req.files.image));
 
-  var personObj = {
-    citizen: req.body.citizen,
-    ofage: req.body.ofage,
-    lastname: req.body.lastname,
-    firstname: req.body.firstname,
-    middlename: req.body.middlename,
-    clastname: req.body.clastname,
-    cfirstname: req.body.cfirstname,
-    cmiddlename: req.body.cmiddlename,
-    haddress: req.body.haddress,
-    hapt: req.body.hapt,
-    hcity: req.body.hcity,
-    hstate: req.body.hstate,
-    hzcode: req.body.hzcode,
-    maddress: req.body.maddress,
-    mapt: req.body.mapt,
-    mcity: req.body.mcity,
-    mstate: req.body.mstate,
-    mzcode: req.body.mzcode,
-    chaddress: req.body.chaddress,
-    chapt: req.body.chapt,
-    chcity: req.body.chcity,
-    chstate: req.body.chstate,
-    chzcode: req.body.chzcode,
-    cmaddress: req.body.cmaddress,
-    cmapt: req.body.cmapt,
-    cmcity: req.body.cmcity,
-    cmstate: req.body.cmstate,
-    cmzcode: req.body.cmzcode,
-    dob: req.body.dob,
-    tnumber: req.body.tnumber,
-    party: req.body.party,
-    rore: req.body.rore,
-    sign: req.body.sign,
-    dateAdded : { type: Date, default: Date.now },
-    link: req.body.link,
-    imageUrl: req.body.imageUrl,
-    slug : req.body.name.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-')
-  }
 
   if (req.body.hasGlasses == 'yes') personObj['hasGlasses'] = true;
   else personObj['hasGlasses'] = false;

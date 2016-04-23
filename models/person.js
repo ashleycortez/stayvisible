@@ -9,7 +9,6 @@ var personSchema = new Schema ({
   middlename: String,
   tnumber: String,
   email: String,
-  zcode: String,
   dateAdded : { type: Date, default: Date.now },
 })
 
