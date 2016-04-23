@@ -167,9 +167,7 @@ router.post('/sendfax', function(req,res){
           var idnumber = req.body.idnumber;
           var party = req.body.party;
           var email = req.body.email;
-          var sigf = req.body.sigf;
-          var sigm = req.body.sigm;
-          var sigl = req.body.sigl;
+          var sign = req.body.sign;
           var tday = req.body.tday;
           //these need to be all made
 
@@ -202,9 +200,7 @@ router.post('/sendfax', function(req,res){
                 id: idnumber,
                 pp: party,
                 em: email,
-                sif: sigf,
-                sim: sigm,
-                sil: sigl,
+                sig: sign,
                 td: tday
 
 
@@ -241,9 +237,7 @@ router.post('/sendfax', function(req,res){
                           rid: idnumber,
                           rpp: party,
                           rem: email,
-                          rsif: sigf,
-                          rsim: sigm,
-                          rsil: sigl,
+                          rsig: sig,
                           rtd: tday
 
                           

@@ -1,5 +1,25 @@
 @import url(http://fonts.googleapis.com/css?family=Gentium+Book+Basic:400,700);
 
+@font-face {
+  font-family: 'Avenir-Next-Condensed';
+  src: url('../fonts/Avenir-Next-Condensed.ttc');
+}
+
+@font-face {
+  font-family: 'Avenir-Next';
+  src: url('../fonts/Avenir-Next.ttc');
+}
+
+@font-face {
+  font-family: 'National-Light';
+  src: url('../fonts/National-Light.otf');
+}
+
+@font-face {
+  font-family: 'National-Regular';
+  src: url('../fonts/National-Regular.otf');
+}
+
 * {
   margin:0;
   padding:0;
