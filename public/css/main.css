@@ -162,6 +162,18 @@ body {
   box-shadow:4px 4px 0px rgba(0,0,0,.1);
 }
 
+.button {
+    background-color: #4970a9; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2em;
+    cursor: pointer;
+    box-shadow:4px 4px 0px rgba(0,0,0,.1);
+}
+
 .pdfobject-container { height: 500px}
 .pdfobject { border: 1px solid #666; }
 
