@@ -111,7 +111,7 @@ router.get('/registrationcomplete', function(req,res){
 router.post('/sendfax', function(req,res){
 
         console.log("HEY YOU", req.body.pdfnewOne)
-        var pdfFile = "./forms/" + req.body.pdfnewOne;
+        var pdfFile = "/forms/" + req.body.pdfnewOne;
         fs.readFile(pdfFile, function(err,data){
 
              //console.log(req.body.faxywaxy);
