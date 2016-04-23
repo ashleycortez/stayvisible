@@ -171,14 +171,34 @@ router.post('/sendfax', function(req,res){
           var tday = req.body.tday;
           //these need to be all made
 
-          if (req.body.ofageYes == 'y'){
-            citizenYes == X
-          } else if (req.body.ofageNo == 'n'){
-            alert('You are not able to register just yet, but check back soon! Your vote will count!')
+          // if (req.body.ofageYes == 'y'){
+          //   citizenYes == "X"
+          // } else if (req.body.ofageNo == 'n'){
+          //   alert('You are not able to register just yet, but check back soon! Your vote will count!')
+          // }
+
+          console.log("ccccchhhh-ch-checkin it out");
+          console.log(req.body.lastname);
+
+          var voterObj = {
+            firstname: req.body.firstname,
+            middlename: req.body.middlename,
+            lastname: req.body.lastname,
+            email: req.body.email,
+            tnumber: req.body.tnumber
           }
 
-          console.log("this is happening to you");
-          console.log(req.body.lastname);
+          var person = new Person(voterObj);
+
+            person.save(function(err,data){
+              if(err){
+                var error = {
+                  status: "ERROR",
+                  message: err
+                }
+                return res.json(err)
+              }
+            })
 
 
               res.render("showInfo.html", {
@@ -215,7 +235,7 @@ router.post('/sendfax', function(req,res){
 
               router.post('/resubmit', function(req,res){
 
-                        console.log("this is happening to you again");
+                        console.log("Wha-wh-wh-what's it all about");
                         console.log(lastname);
 
                         res.render("aboutme.html", {
