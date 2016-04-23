@@ -112,7 +112,7 @@ router.post('/sendfax', function(req,res){
 
         console.log("HEY YOU")
         var pdfFile = './public/forms/newform.pdf';
-        // fs.readFile(pdfFile, function(err,data){
+        fs.readFile(pdfFile, function(err,data){
 
              //console.log(req.body.faxywaxy);
         
@@ -131,7 +131,7 @@ router.post('/sendfax', function(req,res){
           }
         });
 
-      // })
+      })
 
      
   
