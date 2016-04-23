@@ -53,12 +53,15 @@ body {
 }
 
 .radio{
-  width:50%;
+  width:49%;
+  min-height: 300px;
+  display: inline-block;
+  vertical-align: top;
   border:0;
   border-width: 4px;
   border-style: solid;
   border-color: #4970a9;
-  margin: 2px;
+  
   background:#fff;
   padding:10px;
   font-size:1.2em;
