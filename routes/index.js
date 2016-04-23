@@ -110,222 +110,213 @@ router.get('/registrationcomplete', function(req,res){
 
 router.post('/sendfax', function(req,res){
 
-        console.log("HEY YOU", req.body.pdfnewOne)
-        var pdfFile = "public/forms/" + req.body.pdfnewOne;
-        fs.readFile(pdfFile, function(err,data){
+console.log("HEY YOU", req.body.pdfnewOne)
+var pdfFile = "public/forms/" + req.body.pdfnewOne;
+fs.readFile(pdfFile, function(err,data){
 
-             //console.log(req.body.faxywaxy);
-        
-        var faxInfo = {
-            to: req.body.faxywaxy,
-            filenames: pdfFile
-        };
+//console.log(req.body.faxywaxy);
 
-        phaxio.sendFax(faxInfo, function(err, data){
-          if (err) {
-            // there was an error! it didn't go through
-            console.log(err);
-          } else {
-            //it worked!!
-            console.log(data);
-          }
-        });
+var faxInfo = {
+to: req.body.faxywaxy,
+filenames: pdfFile
+};
 
-      })
+phaxio.sendFax(faxInfo, function(err, data){
+if (err) {
+// there was an error! it didn't go through
+console.log(err);
+} else {
+//it worked!!
+console.log(data);
+}
+});
 
-     
-  
+})
 
-    res.render('registrationcomplete.html');
+
+
+
+res.render('registrationcomplete.html');
 
 });
 
 
 
-    router.post('/submit_form', function(req,res){
+router.post('/submit_form', function(req,res){
 
-          var citizenYes = req.body.citizenYes;
-          var citizenNo = req.body.citizenNo;
-          var ofageYes = req.body.ofageYes;
-          var ofageNo = req.body.ofageNo;
-          var lastname = req.body.lastname;
-          var firstname = req.body.firstname;
-          var middlename = req.body.middlename;
-          var haddress = req.body.haddress;
-          var hapt = req.body.hapt;
-          var hcity = req.body.hcity;
-          var hstate = req.body.hstate;
-          var hzcode = req.body.hzcode;
-          var hcounty = req.body.hcounty;
-          var maddress = req.body.maddress;
-          var mapt = req.body.mapt;
-          var mcity = req.body.mcity;
-          var mstate = req.body.mstate;
-          var mzcode = req.body.mzcode;
-          var dob = req.body.dob;
-          var tnumber = req.body.tnumber;
-          var idnumber = req.body.idnumber;
-          var party = req.body.party;
-          var email = req.body.email;
-          var sign = req.body.sign;
-          var tday = req.body.tday;
-          //these need to be all made
+  var citizenYes = req.body.citizenYes;
+  var citizenNo = req.body.citizenNo;
+  var ofageYes = req.body.ofageYes;
+  var ofageNo = req.body.ofageNo;
+  var lastname = req.body.lastname;
+  var firstname = req.body.firstname;
+  var middlename = req.body.middlename;
+  var haddress = req.body.haddress;
+  var hapt = req.body.hapt;
+  var hcity = req.body.hcity;
+  var hstate = req.body.hstate;
+  var hzcode = req.body.hzcode;
+  var hcounty = req.body.hcounty;
+  var maddress = req.body.maddress;
+  var mapt = req.body.mapt;
+  var mcity = req.body.mcity;
+  var mstate = req.body.mstate;
+  var mzcode = req.body.mzcode;
+  var dob = req.body.dob;
+  var tnumber = req.body.tnumber;
+  var idnumber = req.body.idnumber;
+  var party = req.body.party;
+  var email = req.body.email;
+  var sign = req.body.sign;
+  var tday = req.body.tday;
+  //these need to be all made
 
-          // if (req.body.ofageYes == 'y'){
-          //   citizenYes == "X"
-          // } else if (req.body.ofageNo == 'n'){
-          //   alert('You are not able to register just yet, but check back soon! Your vote will count!')
-          // }
+  // if (req.body.ofageYes == 'y'){
+  //   citizenYes == "X"
+  // } else if (req.body.ofageNo == 'n'){
+  //   alert('You are not able to register just yet, but check back soon! Your vote will count!')
+  // }
 
-          console.log("ccccchhhh-ch-checkin it out");
-          console.log(req.body.lastname);
+  console.log("ccccchhhh-ch-checkin it out");
+  console.log(req.body.lastname);
 
-          var voterObj = {
-            firstname: req.body.firstname,
-            middlename: req.body.middlename,
-            lastname: req.body.lastname,
-            email: req.body.email,
-            tnumber: req.body.tnumber
-          }
+  var voterObj = {
+  firstname: req.body.firstname,
+  middlename: req.body.middlename,
+  lastname: req.body.lastname,
+  email: req.body.email,
+  tnumber: req.body.tnumber
+  }
 
-          var person = new Person(voterObj);
+  var person = new Person(voterObj);
 
-            person.save(function(err,data){
-              if(err){
-                var error = {
-                  status: "ERROR",
-                  message: err
-                }
-                return res.json(err)
-              }
-            })
-
-
-              res.render("showInfo.html", {
-
-                czy: citizenYes,
-                czn: citizenNo,
-                oay: ofageYes,
-                oan: ofageNo,
-                ln: lastname,
-                fn: firstname,
-                mn: middlename,
-                ha: haddress,
-                hap: hapt,
-                hc: hcity,
-                hs: hstate,
-                hz: hzcode,
-                hco: hcounty,
-                ma: maddress,
-                map: mapt,
-                mc: mcity,
-                ms: mstate,
-                mz: mzcode,
-                db: dob,
-                tn: tnumber,
-                id: idnumber,
-                pp: party,
-                em: email,
-                sig: sign,
-                td: tday
+  person.save(function(err,data){
+  if(err){
+    var error = {
+      status: "ERROR",
+      message: err
+    }
+    return res.json(err)
+  }
+  })
 
 
-              });
+  res.render("showInfo.html", {
+
+    czy: citizenYes,
+    czn: citizenNo,
+    oay: ofageYes,
+    oan: ofageNo,
+    ln: lastname,
+    fn: firstname,
+    mn: middlename,
+    ha: haddress,
+    hap: hapt,
+    hc: hcity,
+    hs: hstate,
+    hz: hzcode,
+    hco: hcounty,
+    ma: maddress,
+    map: mapt,
+    mc: mcity,
+    ms: mstate,
+    mz: mzcode,
+    db: dob,
+    tn: tnumber,
+    id: idnumber,
+    pp: party,
+    em: email,
+    sig: sign,
+    td: tday
+
+  });
 
 
-              router.post('/resubmit', function(req,res){
+  router.post('/resubmit', function(req,res){
 
-                        console.log("Wha-wh-wh-what's it all about");
-                        console.log(lastname);
+    console.log("Wha-wh-wh-what's it all about");
+    console.log(lastname);
 
-                        res.render("aboutme.html", {
-                          
-                          rln: lastname,
-                          rfn: firstname,
-                          rmn: middlename,
-                          rczy: citizenYes,
-                          rczn: citizenNo,
-                          roay: ofageYes,
-                          roan: ofageNo,
-                          rha: haddress,
-                          rhap: hapt,
-                          rhc: hcity,
-                          rhs: hstate,
-                          rhz: hzcode,
-                          rhco: hcounty,
-                          rma: maddress,
-                          rmap: mapt,
-                          rmc: mcity,
-                          rms: mstate,
-                          rmz: mzcode,
-                          rdb: dob,
-                          rtn: tnumber,
-                          rid: idnumber,
-                          rpp: party,
-                          rem: email,
-                          rsig: sig,
-                          rtd: tday
+    res.render("aboutme.html", {
+      
+      rln: lastname,
+      rfn: firstname,
+      rmn: middlename,
+      rczy: citizenYes,
+      rczn: citizenNo,
+      roay: ofageYes,
+      roan: ofageNo,
+      rha: haddress,
+      rhap: hapt,
+      rhc: hcity,
+      rhs: hstate,
+      rhz: hzcode,
+      rhco: hcounty,
+      rma: maddress,
+      rmap: mapt,
+      rmc: mcity,
+      rms: mstate,
+      rmz: mzcode,
+      rdb: dob,
+      rtn: tnumber,
+      rid: idnumber,
+      rpp: party,
+      rem: email,
+      rsig: sig,
+      rtd: tday
+    });
 
-                          
-                        });
+  });
 
-                      });
+});
 
+ router.post('/renderform', function(req,res){ 
+  var random = Math.floor(Math.random()*100000);
+  var sourcePDF = "template-new.pdf";
+  var temporaryPDF = "newform" + random + ".pdf"
+  var destinationPDF = "./public/forms/" + temporaryPDF;
 
-              countyFaxNum = hcounty;
-
-                  router.post('/renderform', function(req,res){ 
-                  var random = Math.floor(Math.random()*100000);
-                  var sourcePDF = "template-new.pdf";
-                  var temporaryPDF = "newform" + random + ".pdf"
-                  var destinationPDF = "./public/forms/" + temporaryPDF;
-
-                  console.log(temporaryPDF); 
+  console.log(temporaryPDF); 
 
 
 
-                  var pdfData = {
-                    "topmostSubform[0].Page4[0].TextField1[2]": lastname,
-                    "topmostSubform[0].Page4[0].TextField1[1]": firstname,
-                    "topmostSubform[0].Page4[0].TextField1[0]": middlename,
-                    "topmostSubform[0].Page4[0].TextField2[0]": haddress,
-                    "topmostSubform[0].Page4[0].TextField3[0]": hapt,
-                    "topmostSubform[0].Page4[0].TextField4[0]": hcity,
-                    "topmostSubform[0].Page4[0].TextField5[0]": hstate,
-                    "topmostSubform[0].Page4[0].TextField6[0]": hzcode,
-                    "topmostSubform[0].Page4[0].DateTimeField1[0]": dob,
-                    "topmostSubform[0].Page4[0].NumericField1[0]": tnumber,
-                    "topmostSubform[0].Page4[0].TextField11[0]": idnumber,
-                    "E1": citizenYes,
-                    "E2": citizenNo,
-                    "F1": ofageYes,
-                    "F2": ofageNo
-                  };
+  var pdfData = {
+    "topmostSubform[0].Page4[0].TextField1[2]": req.body.lastname,
+    "topmostSubform[0].Page4[0].TextField1[1]": req.body.firstname,
+    "topmostSubform[0].Page4[0].TextField1[0]": req.body.middlename,
+    "topmostSubform[0].Page4[0].TextField2[0]": req.body.haddress,
+    "topmostSubform[0].Page4[0].TextField3[0]": req.body.hapt,
+    "topmostSubform[0].Page4[0].TextField4[0]": req.body.hcity,
+    "topmostSubform[0].Page4[0].TextField5[0]": req.body.hstate,
+    "topmostSubform[0].Page4[0].TextField6[0]": req.body.hzcode,
+    "topmostSubform[0].Page4[0].DateTimeField1[0]": req.body.dob,
+    "topmostSubform[0].Page4[0].NumericField1[0]": req.body.tnumber,
+    "topmostSubform[0].Page4[0].TextField11[0]": req.body.idnumber,
+    "E1": req.body.citizenYes,
+    "E2": req.body.citizenNo,
+    "F1": req.body.ofageYes,
+    "F2": req.body.ofageNo
+  };
 
-                  pdfFiller.fillForm(sourcePDF, destinationPDF, pdfData, function(err){
-                    if (!err){
-                      // res.sendfile(destinationPDF); 
-                      //save the pdf so that it can be served, render the page passing the name of the pdf to the new page
-                      //and the new library will handle the new pdf from there
+  pdfFiller.fillForm(sourcePDF, destinationPDF, pdfData, function(err){
+    if (!err){
+      // res.sendfile(destinationPDF); 
+      //save the pdf so that it can be served, render the page passing the name of the pdf to the new page
+      //and the new library will handle the new pdf from there
 
-                      res.render('renderPdf.html', {hco: countyFaxNum, destinationPDF: temporaryPDF});
-                    }
-                  });
-
-
-
-                  //console.log(countyFaxNum);
-                  // res.render('renderPdf.html', {hcfn: countyFaxNum});
+      res.render('renderPdf.html', {hco: req.body.hco, destinationPDF: temporaryPDF});
+    }
+  });
 
 
-                });
 
-            });
+  //console.log(countyFaxNum);
+  // res.render('renderPdf.html', {hcfn: countyFaxNum});
 
-                router.get('/renderform', function(req,res){
-                  
 
-                });
+});
+
+router.get('/renderform', function(req,res){});
 
 
 
