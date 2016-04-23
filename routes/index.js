@@ -171,6 +171,12 @@ router.post('/sendfax', function(req,res){
           var tday = req.body.tday;
           //these need to be all made
 
+          if (req.body.ofageYes == 'y'){
+            citizenYes == X
+          } else if (req.body.ofageNo == 'n'){
+            alert('You are not able to register just yet, but check back soon! Your vote will count!')
+          }
+
           console.log("this is happening to you");
           console.log(req.body.lastname);
 
