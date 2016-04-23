@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <!-- Custom CSS inside CSS folder -->
-    <link rel="stylesheet" href="../public/css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -24,28 +24,14 @@
     <![endif]-->
   </head>
   <body>
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
-
-    <div id="header">
-      <h1>You're done!<h2>    
-    </div>
-
-<!-- text underneath the Pdf form -->
-    <div class="container">
-      <h3>Thanks for registering to vote!</h3>
+    <div class="wrap">
+      <h1>You're done!<h1>
+      <h2>Thanks for registering to vote!</h2>    
     </div>
 
 <!-- row of buttons -->
       <div>
-        <div class="container">
+        <div class="mainWrap">
           <div class="row">
             <h1>Send me up to date information about voting: Including dates and polling locations</h2>
             <form action="demo_form.asp">
@@ -58,7 +44,7 @@
     </div>
 
     <div clas="container">
-      <p>Share that you registered to vote via, spread the word and help others Stay Visible:</p>
+      <p>Share that you registered to vote via, spread the word and help others make sure Every Vote counts:</p>
       <div class="fb-share-button" data-href="http://www.stayvisible.herokuapp.com" data-layout="button"></div>
       <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
