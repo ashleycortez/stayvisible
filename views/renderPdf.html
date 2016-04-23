@@ -78,43 +78,22 @@ $("#faxit").click(function(){
 
   <body>
 
-    <div id="headofrender">
+    <div id="wrap">
       <h1>Does this look right?<h2>    
-    </div>
-
-<!-- where I want the pdf to render-->
-    <div id="container" >
-      <div id="pdfInfo"><p>this is where the info will show up</p>
-
-        {{ln}}, {{fn}} {{mn}}<br>
-        
-
-
-      </div><!-- Changed variable on Sunday with Justin-->
-    </div>
-
-    <div id='faxCounty'> {{hcfn}} </div>
-<!--       <p>hey this is where the rendered form will be</p> -->
-
-
-  <div id="pdfFormy" class"pdfobject-container pdfobject" style="width:50%"></div>
+      <div id="pdfFormy" class"pdfobject-container pdfobject" style="width:50%"></div>
 
 <!-- text underneath the Pdf form -->
 
 
-    <p id="fax"></p>
-  </div>
+      <p id="fax"></p>
+    </div>
 
 
 <!-- if submit is hit, then these buttons diplay below -->
-      <div>
-        <div class="row">
-
-
-
-          <form action="/sendfax" method="POST">
+    <div>
+      <div class="mainWrap">
+        <form action="/sendfax" method="POST">
             <input id="faxywaxy" name="faxywaxy"></input>
-
               <button id="faxit" class="btn btn-default">Fax It</button>
         </form>
 
