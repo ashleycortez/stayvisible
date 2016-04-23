@@ -162,6 +162,9 @@ body {
   box-shadow:4px 4px 0px rgba(0,0,0,.1);
 }
 
+.pdfobject-container { height: 500px;}
+.pdfobject { border: 1px solid #666; }
+
 
 
 /* Landscape mobile & down */
