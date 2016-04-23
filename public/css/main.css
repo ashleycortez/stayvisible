@@ -163,9 +163,10 @@ body {
 }
 
 .button {
-    background-color: #4970a9; /* Green */
-    border: none;
-    color: white;
+    background: #4970a9; /* Green */
+    color: #fff;
+    padding: 20px;
+    margin-top: 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
