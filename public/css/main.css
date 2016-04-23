@@ -149,6 +149,10 @@ body {
   float:right;
 }
 
+.hiddenField {
+  display: none;
+}
+
 .bigBtn {
   width:100%;
   padding:20px;
