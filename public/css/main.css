@@ -179,6 +179,11 @@ body {
 .pdfobject-container { height: 500px}
 .pdfobject { border: 1px solid #666; }
 
+.qno {
+  font: Helvetica;
+  font-size: 3em;
+}
+
 
 
 /* Landscape mobile & down */
