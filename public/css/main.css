@@ -163,7 +163,8 @@ body {
 }
 
 .button {
-    background: #4970a9; /* Green */
+    width: 100%;
+    background: #4970a9;
     color: #fff;
     padding: 20px;
     margin-top: 20px;
