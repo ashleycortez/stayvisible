@@ -308,7 +308,7 @@ router.post('/sendfax', function(req,res){
                       //save the pdf so that it can be served, render the page passing the name of the pdf to the new page
                       //and the new library will handle the new pdf from there
 
-                      res.render('renderPdf.html', {hcfn: countyFaxNum, fileNew: temporaryPDF, destinationPDF: temporaryPDF});
+                      res.render('renderPdf.html', {hco: countyFaxNum, destinationPDF: temporaryPDF});
                     }
                   });
 

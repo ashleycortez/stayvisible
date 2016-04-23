@@ -43,7 +43,7 @@
     
     for (var i = 0; i<counties.length; i++){
 
-      if('{{hcfn}}' == counties[i].countyName) {
+      if('{{hco}}' == counties[i].countyName) {
 
         console.log('Match!!');
 
@@ -90,7 +90,8 @@ $("#faxit").click(function(){
     <div>
       <div class="mainWrap">
         <form action="/sendfax" method="POST">
-            <input id="faxywaxy" name="faxywaxy">{{hcfn}}</input>
+            <input id="faxywaxy" name="faxywaxy"></input>
+            <input id="pdfnewOne" name="pdfnewOne">{{destinationPDF}}</input>
               <button id="faxit" class="button">Fax It</button>
         </form>
 
