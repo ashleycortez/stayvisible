@@ -75,7 +75,7 @@ $("#faxit").click(function(){
 
   <body>
 
-    <div class="mainWrap">
+    <div class="wrap">
       <h1>Final Review</h1>    
       <div id="pdfFormy" class"pdfobject-container pdfobject"></div>
 
@@ -87,8 +87,7 @@ $("#faxit").click(function(){
 
 
 <!-- if submit is hit, then these buttons diplay below -->
-    <div>
-      <div class="mainWrap">
+      <div class="wrap">
         <h3>This will be forwarded to your local bureau of elections<br>How would you like to send it?</h3>
         <form action="/sendfax" method="POST">
             <input class="hiddenField" id="faxywaxy" name="faxywaxy"></input>
@@ -96,12 +95,10 @@ $("#faxit").click(function(){
               <button id="faxit" class="button">Fax It</button>
         </form>
 
-
-
         <form action="/sendemail" method="POST">
-          <button type="submit" id="emailit" class="button">Email It</button>
+          <button type="submit" id="emailit" class="button" value="anc220@nyu.edu">Email It</button>
        </div>
-     </div>
+
 
     <script>PDFObject.embed("/forms/{{destinationPDF}}", "#pdfFormy");</script>
 
