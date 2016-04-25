@@ -76,7 +76,7 @@ $("#faxit").click(function(){
   <body>
 
     <div class="mainWrap">
-      <h2>Does this look right?</h2>    
+      <h1>Final Review</h1>    
       <div id="pdfFormy" class"pdfobject-container pdfobject"></div>
 
 <!-- text underneath the Pdf form -->
@@ -89,6 +89,7 @@ $("#faxit").click(function(){
 <!-- if submit is hit, then these buttons diplay below -->
     <div>
       <div class="mainWrap">
+        <h3>This will be forwarded to your local bureau of elections<br>How would you like to send it?</h3>
         <form action="/sendfax" method="POST">
             <input class="hiddenField" id="faxywaxy" name="faxywaxy"></input>
             <input class="hiddenField" id="pdfnewOne" name="pdfnewOne" value="{{destinationPDF}}"></input>
