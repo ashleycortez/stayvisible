@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <!-- Custom CSS inside CSS folder -->
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="/css/main.css">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -26,25 +26,23 @@
   <body>
     <div class="wrap">
       <h1>You're done!<h1>
-      <h2>Thanks for registering to vote!</h2>    
+      <h3>Thanks for registering to vote!</h3>    
     </div>
 
 <!-- row of buttons -->
       <div>
-        <div class="mainWrap">
-          <div class="row mainWrap">
-            <h1>Send me up to date information about voting: Including dates and polling locations</h2>
+          <div class="row wrap">
+            <h3>Send me up to date information about voting: Including dates and polling locations</h3>
             <form action="demo_form.asp">
               <input type="checkbox" name="email" value="email">Get voting information via email<br>
               <input type="checkbox" name="tnumber" value="tnumber" checked>Get voting information via text<br>
               <input type="submit" class="button" value="Submit">
             </form>
           </div>
-        </div>
     </div>
 
-    <div class="container">
-      <p>Share that you registered to vote via, spread the word and help others make sure Every Vote counts:</p>
+    <div class="wrap">
+      <p>Share that you registered to vote via, spread the word and help others make sure Every Vote counts:</p><br>
       <div class="fb-share-button" data-href="http://www.every-vote.herokuapp.com" data-layout="button"></div>
       <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -53,7 +51,7 @@
       js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
       fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));</script>
-      <a href="https://twitter.com/intent/tweet?button_hashtag=everyvote&text=This%20election%20season%20I've%20chosen%20to%20Stay%20Visible.%20You%20should%2C%20too.%20%23stay_visible" class="twitter-hashtag-button" data-related="stay_visible" data-url="http://stayvisible.herokuapp.com">Tweet #everyvote</a>
+      <a href="https://twitter.com/intent/tweet?button_hashtag=everyvote&text=This%20election%20season%20I've%20chosen%20to%20make%/Every%20Vote%20count.%20You%20should%2C%20too.%20%23everyvote" class="twitter-hashtag-button" data-related="stay_visible" data-url="http://every-vote.herokuapp.com">Tweet #everyvote</a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
       Pinterest
     </div>

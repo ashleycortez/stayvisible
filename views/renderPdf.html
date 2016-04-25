@@ -88,7 +88,7 @@ $("#faxit").click(function(){
 
 <!-- if submit is hit, then these buttons diplay below -->
       <div class="wrap">
-        <h3>This will be forwarded to your local bureau of elections<br>How would you like to send it?</h3>
+        <h3>This will be forwarded to your local bureau of elections<br>How would you like to send it?</h3><br>
         <form action="/sendfax" method="POST">
             <input class="hiddenField" id="faxywaxy" name="faxywaxy"></input>
             <input class="hiddenField" id="pdfnewOne" name="pdfnewOne" value="{{destinationPDF}}"></input>
