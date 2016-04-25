@@ -53,7 +53,7 @@ body {
 }
 
 .wrap p {
-  font-family:"Gentium Book Basic";
+  font-family:"National-Regular";
   font-size:1.5em;
   color:#a3998e;
   text-shadow:0px 1px 0px rgba(0,0,0,.1);
@@ -192,6 +192,7 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    font-family:"Gentium Book Basic";
     font-size: 2em;
     cursor: pointer;
     box-shadow:4px 4px 0px rgba(0,0,0,.1);
