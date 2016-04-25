@@ -78,7 +78,7 @@ body {
   display: inline-block;
   vertical-align: top;
   border:0;
-  border-width: 4px;
+  border-width: 5px;
   border-style: solid;
   border-color: #4970a9;
   
@@ -102,15 +102,32 @@ body {
   margin: 2px;
   background:#fff;
   padding:10px;
-  font-size:1.2em;
-  font-family:"Gentium Book Basic";
+  font-size:1.1em;
+  font-family:"National-Light";
   box-shadow:4px 4px 0px rgba(0,0,0,.1);
   color:#111;
   text-align: center;
 }
 
+.links {
+  width:20%;
+  border:0;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #4970a9;
+  margin: 2px;
+  background:#fff;
+  padding:10px;
+  font-size:1.1em;
+  font-family:"National-Light";
+  box-shadow:4px 4px 0px rgba(0,0,0,.1);
+  color:#111;
+  text-align: center;
+  display: inline-block;
+}
+
 .dob {
-  width:94%;
+  width:93%;
   border:0;
   border-width: 4px;
   border-style: solid;
@@ -119,7 +136,7 @@ body {
   margin-top: 3px;
   padding:10px;
   font-size:1.2em;
-  font-family:"Gentium Book Basic";
+  font-family:"National-Light";
   box-shadow:4px 4px 0px rgba(0,0,0,.1);
   color:#111;
   text-align: center;
@@ -184,7 +201,7 @@ body {
 .pdfobject { border: 1px solid #666; }
 
 .qno {
-  font: Helvetica;
+  font-family:"Avenir-Next-Condensed";
   font-size: 3em;
 }
 

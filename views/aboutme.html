@@ -25,10 +25,9 @@
 
 <!--[fixed position top bars]><!--> 
     <div id="progressBar" data-0="width: 0%" data-end="width: 100%"></div>
-    <div id="offset">10</div>
 
 <!--[header]><!--> 
-    <header data-0="opacity: 1" data-400="opacity: 0"> 
+    <header> 
       <div class="wrap">
         <h1>EVERY VOTE</h1>
         <p>a user friendly, multi-platform, </br>state universal voter registration tool</p>
@@ -39,7 +38,7 @@
 
       <div class="mainWrap">
       <h1>I want to</h1>
-      <ul>
+      <ul class="links">
         <li><a class="active" href="#home">register to vote</a></li>
         <li><a href="#news">update my name</a></li>
         <li><a href="#contact">update my address</a></li>
@@ -50,15 +49,17 @@
 
       <form method="POST" action="/submit_form" class="mainWrap">
 
+      <h3><span class="qno">First...</span></h3>
+
       <div class="radio">
-        <h2>Are you a <br />US Citizen?</h2>
+        <h3>Are you a <br />US Citizen?</h3>
         <p>You must have been born or naturalized in the US to vote in government elections</p>
         <input type="radio" id="citizenYes" name="citizenYes" value="y" required>Yes<br>
         <input type="radio" id="citizenNo" name="citizenNo" value="n">No 
       </div>
 
       <div class="radio">
-        <h2>Are you <br />18 Years old?</h2>
+        <h3>Are you <br />18 Years old?</h3>
         <p>You don't have to be now; but you have to be by November 8, 2016 in order to vote</p>
         <input type="radio" id="ofageYes" name="ofage" value="y" required>Yes<br>
         <input type="radio" id="ofageNo" name="ofage" value="n">No
@@ -88,7 +89,7 @@
       <input placeholder="Last Name" type="text" class="lname" name="lsig" id="lsig" required/>
       <input placeholder="Today's Date xx/xx/xxxx" type="text" class="dob" name="tday" id="tday" required/>
 
-      <h2>go ahead and</h2>
+      <h3><span class="qno">Lastly...</span></h3>
       <input placeholder="Choose Your County" type="text" class="fname" name="hcounty" id="hcounty" required/>
       <input placeholder="xxxxxx1234" type="text" class="mname" name="idnumber" id="idnumber" required/>
       <button class="bigBtn"type="submit" id="formSubmit"> Submit </button> 
@@ -99,166 +100,9 @@
       </form>
     </main>
 
-<!--[header]><!--> 
-<!--     <header data-0="opacity: 1" data-400="opacity: 0"> 
-      <div class="wrapper clearfix">
-        <h1 class="title">STAY VISIBLE</h1>
-        <p>a user friendly, multi-platform, universal </br>voter registration tool!</p>
-      </div>
-    </header> -->
-
-<!--[main-content]><!--> 
-<!--     <main> -->
-
-
-<!--[whole form]><!--> 
-
-<!--       <form method="POST" action="/submit_form" id="myForm"> -->
-
-<!-- 
-        <div id="profiles" data-bottom-top="background-position: 50% 0%" data-top-bottom="background-position: 50% -20%">
-          <div class="wrapper clearfix">
-            <div class="form-group">
-              <div class="boxer boxerA">
-                <div class="boxerImg"></div>
-                  <h2>Are you a <br />US Citizen?</h2>
-                  <p>some information about being a US citizen</p>
-                  <input type="radio" id="citizenYes" name="citizen" value="y" required>Yes<br>
-                  <input type="radio" id="citizenNo" name="citizen" value="n">No 
-                </div>
-            </div> 
-            <div class="form-group">   
-              <div class="boxer boxerB">
-                <div class="boxerImg"></div>
-                  <h2>Are you <br />18 Years old?</h2>
-                    <p>You don't have to be now; but you have to be by November 8, 2016 in order to vote in the presidential election</p>
-                      <input type="radio" id="ofageYes" name="ofage" value="y" required>Yes<br>
-                      <input type="radio" id="ofageNo" name="ofage" value="n">No
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-
-<!--[name]-->  
-<!-- 
-        <div class="container">
-            <div class="row">
-              <div class="col-sm-4"></div><div class="col-sm-4"><h2>My name is:</h2></div><div class="col-sm-4"></div>
-            </div>
-            <div class="row">
-              <div class="form-group col-sm-4">
-                <input type="text" class="form-control" id="firstname" placeholder="First Name" value ="{{rfn}}" name="firstname" required></input>
-              </div>
-              <div class="form-group col-sm-4">
-                <input type="text" class="form-control" id="middlename" placeholder="Middle Name" value="{{rmn}}" name="middlename" ></input>
-              </div>
-              <div class="form-group col-sm-4">
-                <input type="text" class="form-control" id="lastname" placeholder="Last Name" name="lastname" value="{{rln}}" required></input>
-              </div>
-            <div class="row">
-              <div class="col-sm-12">
-                <h2>And I choose to stay visible in the election process</h2>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-<!--[country]><!-->
-
-<!--[address]><!-->  
-
-
-
-<!--[address]><!--> 
-
-<!--         <div class="container" id="home-address">
-          <div class="form-group">
-            <label for="haddress">Address</label>
-            <input type="text" class="form-control" id="haddress" placeholder="Required" name="haddress" required>
-          </div> 
-          <div class="form-group">
-            <label for="hapt">Apartment Number</label>
-            <input type="text" class="form-control" id="hapt" placeholder="Not Required" name="hapt" >
-          </div>
-          <div class="form-group">
-              <label for="hcity">City</label>
-              <input type="text" class="form-control" id="hcity" placeholder="Required" name="hcity" required>
-          </div>
-          <div class="form-group">
-            <label for="hstate">State</label>
-            <input type="text" class="form-control" id="hstate" placeholder="Required" name="hstate" required>
-          </div>
-          <div class="form-group">
-            <label for="hzipcode">Zipcode</label>
-            <input type="text" class="hzipcode" id="hzipcode" placeholder="Required" name="hzipcode" required>
-            <p class="help-block">xxxxx</p>
-          </div>
-          <div class="form-group">
-            <label for="hcounty">County</label>
-            <input type="text" class="form-control" id="hcounty" placeholder="Required" name="hcounty" required>
-        </div>
- -->
-
-<!--[Personal Info]><!--> 
-<!-- 
-        <div class="container" id="personal-info">
-          <div class="form-group">
-            <label for="dob">Date of Birth</label>
-            <input type="text" class="form-control" id="dob" placeholder="Required" name="dob" required>
-            <p class="help-block">xx/xx/xxxx</p>
-          </div>
-          <div class="form-group">
-            <label for="party">Political Party Affiliate</label>
-            <input type="text" class="form-control" id="party" placeholder="Not Required" name="party" >
-          </div>
-          <div class="form-group">
-            <label for="rore">Race or Ethnic Group</label>
-            <input type="text" class="form-control" id="rore" placeholder="Not Required" name="rore" >
-          </div>
-        </div> -->
-
-
-<!--[Contact Info]><!--> 
-
-<!--         <div class="container" id="contact-info">
-          <div class="form-group">
-            <label for="tnumber">Telephone Number</label>
-            <input type="text" class="form-control" id="tnumber" placeholder="Not Required" name="tnumber" >
-            <p class="help-block">xxx xxx xxxxx</p>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="Not Required" name="email" >
-          </div>
-        </div> -->
-
-
-<!--[Signature]><!--> 
-
-<!--         <div class="container" id="sign">
-          <div class="form-group">  
-            <label for="sign">Signature</label>
-            <input type="text" class="form-control" id="sign" placeholder="Required" name="sign" required>
-          </div>
-        </div>
- -->
-
-<!--[Sending]><!-->    
-
-<!--         <div class="container" id="send">
-          <div class="form-group"> </div>  
-        </div>  -->
-            
-<!-- 
-    </form>
-
-  </main> -->
-<!-- /main -->
-
-
 <!--[footer]><!-->         
-  <footer data-end="background-color: rgb(255,255,255)" data-25-end="background-color: rgb(231,231,231)">
-    <div class="wrapper clearfix">
+  <footer>
+    <div class="wrap">
       <p>&copy; 2016 www.ashley-cortez.squarespace.com</p>
     </div>
   </footer>
@@ -266,19 +110,6 @@
 
 <!--[scripts]><!-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
-  <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-
-  <script type="text/javascript" src="/js/skrollr.min.js"></script>
-  <script type="text/javascript">
-    var s = skrollr.init({
-      forceHeight: false,
-      render: function(data){
-                //console.log(data.curTop);
-        $('#offset').text(data.curTop);
-        }
-    });
-        </script>
-
   <script src="/js/plugins.js"></script>
   <script src="/js/main.js"></script>
 
