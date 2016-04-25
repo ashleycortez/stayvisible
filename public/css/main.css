@@ -52,6 +52,13 @@ body {
   text-align: center;
 }
 
+.wrap h3 {
+  font-family: "Avenir-Next";
+  color: #021129;
+  text-shadow:0px 1px 0px rgba(0,0,0,.1);
+  text-align: center;
+}
+
 .wrap p {
   font-family:"National-Regular";
   font-size:1.5em;
