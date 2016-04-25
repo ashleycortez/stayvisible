@@ -167,8 +167,7 @@ router.post('/submit_form', function(req,res){
   var idnumber = req.body.idnumber;
   var party = req.body.party;
   var email = req.body.email;
-  var sign = req.body.sign;
-  var tday = req.body.tday;
+
   //these need to be all made
 
   // if (req.body.ofageYes == 'y'){
@@ -226,8 +225,7 @@ router.post('/submit_form', function(req,res){
     id: idnumber,
     pp: party,
     em: email,
-    sig: sign,
-    td: tday
+
 
   });
 
@@ -262,8 +260,7 @@ router.post('/submit_form', function(req,res){
       rid: idnumber,
       rpp: party,
       rem: email,
-      rsig: sig,
-      rtd: tday
+
     });
 
   });
